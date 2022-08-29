@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     {
         
     }
-
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
             playerobject.transform.Rotate(Vector3.up * turnningspeed * Time.deltaTime);
         }
     }
-
+    */
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.tag == "wall_obstacle")
