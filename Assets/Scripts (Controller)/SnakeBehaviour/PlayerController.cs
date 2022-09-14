@@ -4,58 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    // +++++++++++++++++++++++++++++++++++++++++++++
-
-    //LAWRENCE'S Movement
-
-    // +++++++++++++++++++++++++++++++++++++++++++++
-
     /*
-    // public GameObject playerobject;
-    //public float speed;
-    //public float turnningspeed;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
-    // Update is called once per frame
-    void Update()
-    {
-        playerobject.transform.position += playerobject.transform.forward * speed * Time.deltaTime;
-        if (Input.GetKey(KeyCode.LeftArrow))
-        { 
-            playerobject.transform.Rotate(-Vector3.up * turnningspeed * Time.deltaTime);
-        }
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            playerobject.transform.Rotate(Vector3.up * turnningspeed * Time.deltaTime);
-        }
-    }
-    */
-
-
-
-    // +++++++++++++++++++++++++++++++++++++++++++++
-
-    // ANTHONY'S Movement
-
-    // +++++++++++++++++++++++++++++++++++++++++++++
-
     public CharacterController controller;
 
     public float SPEED = 5f;
     float HORIZONTAL = 0f;
-    float VERTICAL = 0f;
+    Vector3 DIRECTION = new Vector3(0, 0, 1);
+    //float VERTICAL = 0f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        VERTICAL = 1f; // init value being used in direction vector
+        //VERTICAL = 1f; // init value being used in direction vector
     }
 
     // Update is called once per frame
@@ -67,57 +28,55 @@ public class PlayerController : MonoBehaviour
             myInput();
         }
 
-        Vector3 direction = new Vector3(HORIZONTAL, 0f, VERTICAL).normalized;
-
-        // Turns character to look in direction of movement.
-        // Slerp smoothens turn
-        if (direction.magnitude >= 0.1f)
+        if (HORIZONTAL > 1)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.15f);
+            // transform.rotation = Quaternion.Euler(transform.right * speed);
+            DIRECTION = new Vector3(1, 0, 0);
+            transform.Rotate(new Vector3(1, 0, 0) * Time.deltaTime * SPEED, Space.Self);
         }
+        else if (HORIZONTAL < 1)
+        {
+            //transform.rotation = Quaternion.Euler(-transform.right);
+            DIRECTION = new Vector3(-1, 0, 0);
+            transform.Rotate(new Vector3(-1, 0, 0) * Time.deltaTime * SPEED, Space.Self);
+        }
+        //Vector3 direction = new Vector3(HORIZONTAL, 0f, VERTICAL).normalized;
+        
+        // Turns character to look in direction of movement. Slerp smoothens turn
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), 0.15f);
 
         // Force for Constant Movement
-        controller.Move(direction * SPEED * Time.deltaTime);
+        controller.Move(DIRECTION * SPEED * Time.deltaTime);
     }
 
     // Used to get and store input values to use in constant movement.
     void myInput()
     {
         float tempHorizontal = Input.GetAxisRaw("Horizontal");
-        float tempVertical = Input.GetAxisRaw("Vertical");
+        HORIZONTAL = tempHorizontal;
 
-        // Only allow change if input is not opposite on axis (no backwards)
-        if (tempHorizontal == (HORIZONTAL + 1) || tempHorizontal == HORIZONTAL - 1)
-        {
-            HORIZONTAL = tempHorizontal;
-        }
-
-        if (tempVertical == (VERTICAL + 1) || tempVertical == VERTICAL - 1)
-        {
-            VERTICAL = tempVertical;
-        }
     }
+    */
 
+    public CharacterController controller;
+    public float _speed = 10;
+    public float _rotationSpeed = .1f;
 
-    // +++++++++++++++++++++++++++++++++++++++++++++
-    // LAWRENCE'S Collision
+    private Vector3 rotation;
 
-    // +++++++++++++++++++++++++++++++++++++++++++++
-
-   /* OLD VERSION REQUIRED RIGIDBODY
-    * 
-    * private void OnCollisionEnter(Collision collision)
+    public void Update()
     {
-        if (collision.transform.tag == "wall_obstacle")
-        {
-            Destroy(playerobject);
-        }
+        this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+
+        Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
+        move = this.transform.TransformDirection(move);
+        controller.Move(move * _speed);
+        this.transform.Rotate(this.rotation);
     }
-   */
+
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-
         if (controller.collisionFlags == CollisionFlags.Sides)
         {
             Destroy(controller.gameObject);
