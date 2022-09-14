@@ -12,7 +12,7 @@ public class GameplayController : MonoBehaviour
     //bounds for area for bomb to spawn
     //values for testing only
    private float min_X = -3f, max_X = 3f, min_Z = -3f, max_Z = 3f;
-   private float yPos = 0.6f;
+   private float yPos = 2.92f;
    /*
    public GameObject level;
    int[,] area = level.getSpawnArea();
