@@ -11,7 +11,7 @@ public class GameplayController : MonoBehaviour
 
     //bounds for area for bomb to spawn
     //values for testing only
-   private float min_X = -3f, max_X = 3f, min_Z = -3f, max_Z = 3f;
+   private float min_X = -5f, max_X = 5f, min_Z = -5f, max_Z = 5f;
    private float yPos = 2.92f;
    /*
    public GameObject level;
@@ -58,7 +58,7 @@ public class GameplayController : MonoBehaviour
 
    //able to set frequency of enemy spawning and time limit to increase difficulty
    IEnumerator SpawnPickUps(){
-    yield return new WaitForSeconds(Random.Range(1f, 3f));
+    yield return new WaitForSeconds(Random.Range(1f, 6f));
     if(Random.Range(0, 10) >= 2){
         var pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
         Instantiate(bomb_Pickup, pos, Quaternion.identity);

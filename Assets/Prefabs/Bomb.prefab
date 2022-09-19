@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 3834543420251586959}
   - component: {fileID: 3834543420251586956}
   - component: {fileID: 3834543420251586952}
-  - component: {fileID: 3834543420251586958}
+  - component: {fileID: 7015978980889890687}
   m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
@@ -315,7 +315,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3834543420251586958
+--- !u!114 &7015978980889890687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,6 +324,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4502711497882344236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3708688864bf00641881aaf358abc9fc, type: 3}
+  m_Script: {fileID: 11500000, guid: f5343a0a7b034de41aea2e583f7aabe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bomb: {fileID: 4502711497882344236}
+  radius: 1
+  power: 1
+  upforce: 1
+  explosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
+    type: 3}
