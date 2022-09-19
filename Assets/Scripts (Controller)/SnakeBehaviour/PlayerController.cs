@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
-    public CharacterController controller;
-
     // Settings
     public float speed = 5;
     public float rotationSpeed = 180;
@@ -19,7 +17,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < 5; i++)
+
+        for (int i = 0; i < 2; i++)
         {
             GrowSnake();
         }
@@ -29,10 +28,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // For constant forward movement
-        controller.Move(transform.forward* speed *Time.deltaTime);
+        transform.position += transform.forward * speed * Time.deltaTime;
 
         // Rotation with arrow keys
-        float direction = Input.GetAxis("Horizontal"); 
+        float direction = Input.GetAxis("Horizontal");
+        Debug.Log(direction);
         transform.Rotate(Vector3.up * direction * rotationSpeed * Time.deltaTime);
 
         // Storing Position
@@ -44,6 +44,14 @@ public class PlayerController : MonoBehaviour
         {
             // point is the latest position in history 
             Vector3 point = PositionsHistory[Mathf.Min(index * gap, PositionsHistory.Count-1)];
+
+            // Follow head
+            Vector3 followDirection = point - body.transform.position;
+            body.transform.position += followDirection * speed * Time.deltaTime;
+
+            // Rotate body parts as they follow
+            body.transform.LookAt(point);
+
             index++;
         }
     }
@@ -54,11 +62,11 @@ public class PlayerController : MonoBehaviour
         BodyParts.Add(Cube_body);
     }
 
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (controller.collisionFlags == CollisionFlags.Sides)
+        if (collision.transform.tag == "wall")
         {
-            Destroy(controller.gameObject);
+            Debug.Log("hit Wall");
         }
     }
 }
