@@ -11,8 +11,11 @@ public class GameplayController : MonoBehaviour
 
     //bounds for area for bomb to spawn
     //values for testing only
-   private float min_X = -5f, max_X = 5f, min_Z = -5f, max_Z = 5f;
+   private float min_X = -15f, max_X = 15f, min_Z = -15f, max_Z = 15f;
    private float yPos = 2.92f;
+
+   //for collision check
+   public float radiusCheck = 2f;
    /*
    public GameObject level;
    int[,] area = level.getSpawnArea();
@@ -58,14 +61,32 @@ public class GameplayController : MonoBehaviour
 
    //able to set frequency of enemy spawning and time limit to increase difficulty
    IEnumerator SpawnPickUps(){
-    yield return new WaitForSeconds(Random.Range(1f, 6f));
+    yield return new WaitForSeconds(Random.Range(1f, 3f));
     if(Random.Range(0, 10) >= 2){
-        var pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
-        Instantiate(bomb_Pickup, pos, Quaternion.identity);
+        Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
+        bool check = CollisionCheck(pos);
+        if(check)
+        {
+            Instantiate(bomb_Pickup, pos, Quaternion.identity);
+        }
     }else{
         //do later
     }
     Invoke("StartSpawning", 0f);
+   }
+
+   public bool CollisionCheck(Vector3 pos)
+   {
+        Collider[] colliders = Physics.OverlapSphere(pos, radiusCheck);
+        foreach(Collider col in colliders)
+        {
+            //change/add new tags as needed
+            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food")
+            {
+                return false;
+            }               
+        }
+        return true;     
    }
    /*
    IEnumerator SpawnPickUps(){

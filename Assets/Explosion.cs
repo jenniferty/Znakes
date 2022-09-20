@@ -5,9 +5,9 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public GameObject bomb;
-    public float radius = 1f;
-    public float power = 1f;
-    public float upforce = 1f;
+    public float radius = 2f;
+    public float power = 2f;
+    public float upforce = 0f;
     public GameObject explosionPrefab;
 
     // Start is called before the first frame update
@@ -23,6 +23,11 @@ public class Explosion : MonoBehaviour
         {
             Invoke("Detonate", 5f);
         }
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Detonate();
     }
 
     void Detonate()

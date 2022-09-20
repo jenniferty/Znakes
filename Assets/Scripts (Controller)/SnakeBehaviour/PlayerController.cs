@@ -28,11 +28,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    //todo
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if (controller.collisionFlags == CollisionFlags.Sides)
         {
             Destroy(controller.gameObject);
         }
+
+        /*if (controller.collisionFlags == CollisionFlags.Bomb)
+        {
+
+        }*/
     }
 }
