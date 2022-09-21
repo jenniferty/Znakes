@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         // Destroys player object when health reaches zero. update to end game only
         if (health <= 0)
         {
+            attachedCam.transform.parent = null;
             Destroy(controller.gameObject);
         }
         // For constant forward movement
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     //todo
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (controller.collisionFlags == CollisionFlags.Sides)
+        if (hit.transform.CompareTag("Sides"))
         {
             attachedCam.transform.parent = null;
             Destroy(controller.gameObject);
