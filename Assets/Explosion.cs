@@ -5,10 +5,11 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public GameObject bomb;
-    public float radius = 2f;
-    public float power = 2f;
+    public float radius = 3f;
+    public float power = 3f;
     public float upforce = 0f;
     public GameObject explosionPrefab;
+    public float bombTimer = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +22,16 @@ public class Explosion : MonoBehaviour
     {
         if (bomb == enabled)
         {
-            Invoke("Detonate", 5f);
+            //Invoke("Detonate", 5);
+            if (bombTimer > 0)
+            {
+                bombTimer -= Time.deltaTime;
+            }
+            else{
+                Invoke("Detonate", 0);
+            }
         }
+
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -42,7 +51,15 @@ public class Explosion : MonoBehaviour
             {
                 rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
             }
+            //fix later
+            PlayerController player = hit.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.health = player.health - 2;
+                Debug.Log(player.health);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+
     }
 }
