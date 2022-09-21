@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -9,10 +10,14 @@ public class PlayerController : MonoBehaviour
     // Settings
     public float speed = 5;
     public float rotationSpeed = 180;
+    Camera attachedCam;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
+
 
     }
 
@@ -32,7 +37,12 @@ public class PlayerController : MonoBehaviour
     {
         if (controller.collisionFlags == CollisionFlags.Sides)
         {
+            attachedCam.transform.parent = null;
             Destroy(controller.gameObject);
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //Scene index: 0 = main menu, 1 = game, 2 = option menu that will pop up when sanke dies.
     }
+
+    
 }
