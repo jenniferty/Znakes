@@ -9,11 +9,12 @@ public class PlayerController : MonoBehaviour
     // Settings
     public float speed = 5;
     public float rotationSpeed = 180;
+    Camera attachedCam;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         if (controller.collisionFlags == CollisionFlags.Sides)
         {
+            attachedCam.transform.parent = null;
             Destroy(controller.gameObject);
         }
     }
