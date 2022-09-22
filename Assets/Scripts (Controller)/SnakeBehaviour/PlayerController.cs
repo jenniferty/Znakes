@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     // Settings
     public int health = 100;
+    public int maxHealth = 100;
     public float speed = 5;
     public float rotationSpeed = 180;
 
@@ -25,12 +26,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Destroys player object when health reaches zero. update to end game only
-        if (health <= 0)
-        {
-            attachedCam.transform.parent = null;
-            //Destroy(controller.gameObject);
-        }
         // For constant forward movement
         controller.Move(transform.forward * speed * Time.deltaTime);
 
@@ -53,7 +48,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         healthBar.SetHealth(health);
