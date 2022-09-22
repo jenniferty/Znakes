@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour 
 {
     public CharacterController controller;
-//test for git
+
     // Settings
     public int health = 100;
     public int maxHealth = 100;
