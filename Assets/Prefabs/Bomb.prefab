@@ -328,8 +328,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 4502711497882344236}
-  radius: 2
-  power: 2
+  radius: 3
+  power: 3
   upforce: 0
   explosionPrefab: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3,
     type: 3}
+  bombTimer: 5
