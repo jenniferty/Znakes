@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     // Settings
     public int health = 100;
+    public int maxHealth = 100;
     public float speed = 5;
     public float rotationSpeed = 180;
 
@@ -36,16 +37,18 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
     }
 
+    //todo
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (controller.collisionFlags == CollisionFlags.Sides)
+        if (hit.transform.CompareTag("Sides"))
         {
             attachedCam.transform.parent = null;
+            //attachedCam.transform.parent = null;
             TakeDamage(100);
         }
     }
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
         healthBar.SetHealth(health);
