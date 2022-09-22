@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerCollisionScript : MonoBehaviour
 {
     public FoodSpawnerScript foodSpawner;
-
+    public PlayerController playerSnake;
+   // PlayerController snakePlayer = new PlayerController();
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,20 @@ public class PlayerCollisionScript : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         Debug.Log("collision ");
+      //  snakePlayer.GrowSnake();
 
         if (collider.CompareTag("Food"))
         {
+            
             foodSpawner.Spawn();
             Destroy(collider.gameObject);
+            playerSnake.GrowSnake();
+        }
+
+        if (collider.CompareTag("wall"))
+        {
+            Destroy(playerSnake);
+            Debug.Log("Collions Wall");
         }
     }
 
