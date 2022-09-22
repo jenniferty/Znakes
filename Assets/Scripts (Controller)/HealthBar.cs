@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    //Slider changes the green health bar
     public Slider slider;
 
     public void SetHealth(int health)
