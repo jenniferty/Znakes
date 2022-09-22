@@ -3,7 +3,12 @@ guid: 9b904893ed693144a9c0ef45a6592d5f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - controller: {instanceID: 0}
+  - healthBar: {instanceID: 0}
+  - loseScreen: {instanceID: 0}
+  - snakeBody: {fileID: 8152421918659892611, guid: a7fffcc750742f64599b138558b682f7,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
