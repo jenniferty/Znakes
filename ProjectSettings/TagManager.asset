@@ -8,14 +8,16 @@ TagManager:
   - Bomb
   - variable
   - Sides
+  - Health
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - AttackRadius
   - Water
   - UI
-  - 
+  - Player
   - 
   - Lighting
   - Ground

@@ -19,11 +19,6 @@ public class Timer : MonoBehaviour
     void Update()
     {
         timer.text = GetBombTime();
-        //transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
-    }
-
-    void LateUpdate()
-    {
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
     }
 

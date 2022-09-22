@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
     public int health = 100;
+    public int maxHealth = 100;
     Camera attachedCam;
 
     // Settings
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             attachedCam.transform.parent = null;
-            Destroy(controller.gameObject);
+            //Destroy(controller.gameObject);
         }
         // For constant forward movement
         controller.Move(transform.forward* speed *Time.deltaTime);
@@ -42,7 +43,17 @@ public class PlayerController : MonoBehaviour
         if (hit.transform.CompareTag("Sides"))
         {
             attachedCam.transform.parent = null;
-            Destroy(controller.gameObject);
+            //Destroy(controller.gameObject);
         }
+    }
+
+     public void TakeDamage(int Damage)
+    {
+        health -= Damage;
+        if (health <= 0)
+        {
+            health = 0;
+        }
+        Debug.Log(health);
     }
 }

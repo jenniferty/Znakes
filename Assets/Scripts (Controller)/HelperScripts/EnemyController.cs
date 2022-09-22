@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
    public static EnemyController instance;
 
    public GameObject bomb_Pickup;
+   public GameObject health_Pickup;
+   public GameObject enemy_Pickup;
 
     //bounds for area for bomb to spawn
     //values for testing only
@@ -16,7 +18,7 @@ public class EnemyController : MonoBehaviour
 
    //for collision check
    public float radiusCheck = 2f;
-   
+
    void Awake(){
     MakeInstance();
    }
@@ -46,10 +48,20 @@ public class EnemyController : MonoBehaviour
         bool check = CollisionCheck(pos);
         if(check)
         {
-            Instantiate(bomb_Pickup, pos, Quaternion.identity);
+            if(Random.Range(0, 10) >= 3){
+                Instantiate(bomb_Pickup, pos, Quaternion.identity);
+            }else{
+                Instantiate(enemy_Pickup, pos, Quaternion.identity);
+            }
+            
         }
     }else{
-        //do later
+        Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
+        bool check = CollisionCheck(pos);
+        if(check)
+        {
+            Instantiate(health_Pickup, pos, Quaternion.identity);
+        }
     }
     Invoke("StartSpawning", 0f);
    }
@@ -60,7 +72,7 @@ public class EnemyController : MonoBehaviour
         foreach(Collider col in colliders)
         {
             //change/add new tags as needed
-            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food")
+            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "enemy")
             {
                 return false;
             }               

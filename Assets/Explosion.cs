@@ -22,7 +22,6 @@ public class Explosion : MonoBehaviour
     {
         if (bomb == enabled)
         {
-            //Invoke("Detonate", 5);
             if (bombTimer > 0)
             {
                 bombTimer -= Time.deltaTime;
@@ -51,11 +50,11 @@ public class Explosion : MonoBehaviour
             {
                 rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
             }
-            //fix later
+            //hit per particle
             PlayerController player = hit.GetComponent<PlayerController>();
             if (player != null)
             {
-                player.health = player.health - 2;
+                player.GetComponent<PlayerController>().TakeDamage(5);
                 Debug.Log(player.health);
             }
             Destroy(gameObject);
