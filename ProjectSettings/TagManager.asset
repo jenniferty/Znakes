@@ -10,8 +10,6 @@ TagManager:
   - Sides
   - Health
   - Enemy
-  - Undefined
-  - Food
   layers:
   - Default
   - TransparentFX
