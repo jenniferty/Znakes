@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
-        healthBar.SetHealth(health);
+        healthBar.SetHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(Vector3.up * direction * rotationSpeed * Time.deltaTime);
 
         // Health and Death
+        healthBar.SetHealth(health);
         CheckDeath();
     }
 
