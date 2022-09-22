@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
 
     Camera attachedCam;
     public HealthBar healthBar;
+    public LoseScreen loseScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
-        healthBar = FindObjectOfType<HealthBar>();
         healthBar.SetHealth(health);
     }
 
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // For constant forward movement
-        controller.Move(transform.forward* speed *Time.deltaTime);
+        controller.Move(transform.forward * speed * Time.deltaTime);
 
         // Rotation with arrow keys
         float direction = Input.GetAxis("Horizontal"); 
@@ -54,12 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         if (health <= 0)
         {
-            Death();
+            PauseGame.Pause();
+            loseScreen.ShowDeathScreen();
         }
-    }
-
-    private void Death()
-    {
-        Destroy(controller.gameObject);
     }
 }
