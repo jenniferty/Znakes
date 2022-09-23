@@ -27,11 +27,10 @@ public class PlayerCollisionScript : MonoBehaviour
             playerSnake.GrowSnake();
         }
 
-        if (collider.CompareTag("wall"))
+        if (collider.CompareTag("Sides"))
         {
-            Destroy(playerSnake);
-            Debug.Log("Collions Wall");
-            
+            //Destroy(playerSnake);
+            playerSnake.GetComponent<PlayerController>().TakeDamage(100);
         }
     }
 
