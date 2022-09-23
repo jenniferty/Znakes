@@ -31,7 +31,12 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             //Destroy(playerSnake);
             playerSnake.GetComponent<PlayerController>().TakeDamage(100);
+            Debug.Log("Has hit wall hope it fucken dies");
         }
+
+        
+
+
     }
 
     // Update is called once per frame
