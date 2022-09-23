@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - variable
   - wall
+  - BodySides
   layers:
   - Default
   - TransparentFX
