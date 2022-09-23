@@ -34,6 +34,12 @@ public class PlayerController : MonoBehaviour
         healthBar.SetHealth(maxHealth);
         GrowSnake();
         GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
+        GrowSnake();
     }
 
     // Update is called once per frame
