@@ -72,7 +72,7 @@ public class EnemyController : MonoBehaviour
         foreach(Collider col in colliders)
         {
             //change/add new tags as needed
-            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "enemy")
+            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy")
             {
                 return false;
             }               

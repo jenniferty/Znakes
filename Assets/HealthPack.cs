@@ -43,7 +43,6 @@ public class HealthPack : MonoBehaviour
                 player.health = player.health + healAmount;
             }
             Destroy(gameObject);
-            Debug.Log(player.health);
         }
     }
 }
