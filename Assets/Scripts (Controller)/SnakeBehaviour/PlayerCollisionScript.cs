@@ -31,6 +31,7 @@ public class PlayerCollisionScript : MonoBehaviour
         {
             Destroy(playerSnake);
             Debug.Log("Collions Wall");
+            
         }
     }
 

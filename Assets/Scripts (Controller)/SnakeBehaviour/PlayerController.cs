@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
-<<<<<<< HEAD
-    
-=======
-    public CharacterController controller;
->>>>>>> 70a6104cae5a1add576ae9e258b6a0ddc41b861a
+
+
 
     // Settings
     public int health = 100;
@@ -83,10 +81,15 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckDeath()
     {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            health = 0;
+        }
         if (health <= 0)
         {
-            PauseGame.Pause();
-            loseScreen.ShowDeathScreen();
+            //PauseGame.Pause();
+            //loseScreen.ShowDeathScreen();
+            SceneManager.LoadScene(2);
         }
     }
     public void GrowSnake()
@@ -94,4 +97,6 @@ public class PlayerController : MonoBehaviour
         GameObject body = Instantiate(snakeBody);
         bodyParts.Add(body);
     }
+
+    
 }
