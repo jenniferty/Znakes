@@ -5,16 +5,16 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public GameObject bomb;
-    public float radius = 3f;
+    public float radius = 5f;
     public float power = 3f;
     public float upforce = 0f;
     public GameObject explosionPrefab;
-    public float bombTimer = 5f;
+    public float bombTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        bombTimer = Random.Range(4, 8);
     }
 
     // Update is called once per frame
@@ -55,7 +55,6 @@ public class Explosion : MonoBehaviour
             if (player != null)
             {
                 player.GetComponent<PlayerController>().TakeDamage(5);
-                Debug.Log(player.health);
             }
             Destroy(gameObject);
         }

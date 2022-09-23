@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
+<<<<<<< HEAD
 
     
 
+=======
+>>>>>>> 16450071fe6f73b487730e733c9bc3f1284fdb9e
 
     // Settings
     public int health = 100;
