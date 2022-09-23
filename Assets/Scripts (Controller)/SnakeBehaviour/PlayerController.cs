@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
-<<<<<<< HEAD
-    
-=======
-    public CharacterController controller;
->>>>>>> 70a6104cae5a1add576ae9e258b6a0ddc41b861a
 
     // Settings
     public int health = 100;
