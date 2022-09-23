@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
@@ -77,8 +78,9 @@ public class PlayerController : MonoBehaviour
     {
         if (health <= 0)
         {
-            PauseGame.Pause();
-            loseScreen.ShowDeathScreen();
+            //PauseGame.Pause();
+            //loseScreen.ShowDeathScreen();
+            SceneManager.LoadScene(2);
         }
     }
     public void GrowSnake()
