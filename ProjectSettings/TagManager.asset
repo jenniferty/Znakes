@@ -4,14 +4,14 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - variable
-<<<<<<< HEAD
+  - Undefined
+  - Food
   - Sides
+  - Bomb
   - Health
   - Enemy
-  - Food
-=======
->>>>>>> 70a6104cae5a1add576ae9e258b6a0ddc41b861a
+  - variable
+  - wall
   layers:
   - Default
   - TransparentFX

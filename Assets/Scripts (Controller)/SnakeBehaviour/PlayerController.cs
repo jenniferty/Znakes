@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
-<<<<<<< HEAD
+
     
-=======
-    public CharacterController controller;
->>>>>>> 70a6104cae5a1add576ae9e258b6a0ddc41b861a
+
 
     // Settings
     public int health = 100;
@@ -33,6 +31,8 @@ public class PlayerController : MonoBehaviour
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
         healthBar.SetHealth(maxHealth);
+        GrowSnake();
+        GrowSnake();
     }
 
     // Update is called once per frame
@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
 
         float steerDirection = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up * steerDirection * SteerSpeed * Time.deltaTime);
+
 
 
         //new growth function code
@@ -65,16 +66,7 @@ public class PlayerController : MonoBehaviour
         CheckDeath();
     }
 
-    //todo
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.transform.CompareTag("Sides"))
-        {
-            attachedCam.transform.parent = null;
-            //attachedCam.transform.parent = null;
-            TakeDamage(100);
-        }
-    }
+  
 
     public void TakeDamage(int damage)
     {
