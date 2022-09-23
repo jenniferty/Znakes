@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Undefined
+  - Food
+  - Sides
+  - Bomb
+  - Health
+  - Enemy
+  - variable
+  - wall
   layers:
   - Default
   - TransparentFX
