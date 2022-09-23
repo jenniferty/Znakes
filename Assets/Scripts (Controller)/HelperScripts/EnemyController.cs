@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     //bounds for area for bomb to spawn
     //values for testing only
-   private float min_X = -15f, max_X = 15f, min_Z = -15f, max_Z = 15f;
+   private float min_X = -25f, max_X = 25f, min_Z = -25f, max_Z = 25f;
    private float yPos = 3.8f;
 
    //for collision check
