@@ -4,25 +4,26 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Shootable
-  - Bomb
   - variable
+<<<<<<< HEAD
   - Sides
   - Health
   - Enemy
   - Food
+=======
+>>>>>>> 70a6104cae5a1add576ae9e258b6a0ddc41b861a
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - AttackRadius
+  - 
   - Water
   - UI
-  - Player
   - 
-  - Lighting
-  - Ground
-  - Postprocessing
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -45,9 +46,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Fire
-    uniqueID: 3804908061
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

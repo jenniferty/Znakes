@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour 
 {
+<<<<<<< HEAD
     
+=======
+    public CharacterController controller;
+>>>>>>> 70a6104cae5a1add576ae9e258b6a0ddc41b861a
 
     // Settings
     public int health = 100;
@@ -28,7 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
-        healthBar.SetHealth(health);
+        healthBar.SetHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Health and Death
+        healthBar.SetHealth(health);
         CheckDeath();
     }
 
