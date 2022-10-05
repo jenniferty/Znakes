@@ -29,9 +29,6 @@ public class PlayerHealthController : MonoBehaviour
         healthBar.SetHealth(getHealth());
         CheckDeath();
     }
-
-  
-
     public void TakeDamage(int damage)
     {
         setHealth(getHealth() - damage);
@@ -41,8 +38,6 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (getHealth() <= 0)
         {
-            //PauseGame.Pause();
-            //loseScreen.ShowDeathScreen();
             SceneManager.LoadScene(2);
         }
     }
