@@ -17,7 +17,7 @@ public class HealthPack : MonoBehaviour
     {
         if (healthPack == enabled)
         {
-            Invoke("TimeOut", 3);
+            Invoke("TimeOut", 10);
         }
     }
 

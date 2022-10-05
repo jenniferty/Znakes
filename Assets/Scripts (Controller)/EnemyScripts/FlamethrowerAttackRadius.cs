@@ -12,16 +12,17 @@ public class FlamethrowerAttackRadius : MonoBehaviour
     public delegate void PlayerExitedEvent(PlayerHealthController player);
     public event PlayerEnteredEvent OnPlayerEnter;
     public event PlayerEnteredEvent OnPlayerExit;
-    private float tickTime = 0.1f; //changes frequency of damage
+    private float tickTime = 0.3f; //changes frequency of damage
     private List<PlayerHealthController> PlayersInRadius = new List<PlayerHealthController>();
 
     private void OnTriggerEnter(Collider other)
-    {
+    {       
         if (other.TryGetComponent<PlayerHealthController>(out PlayerHealthController player))
         {
             PlayersInRadius.Add(player);
             OnPlayerEnter?.Invoke(player);
             Invoke("StartDamage", 0);
+            Debug.Log("entered", gameObject);
         }
     }
 
@@ -39,7 +40,7 @@ public class FlamethrowerAttackRadius : MonoBehaviour
         if((PlayersInRadius?.Count ?? 0) != 0){
             if(PlayersInRadius.First() != null){
                 PlayerHealthController player = PlayersInRadius.First();        
-                player.GetComponent<PlayerHealthController>().TakeDamage(3);
+                player.GetComponent<PlayerHealthController>().TakeDamage(1);
             }
         Invoke("StartDamage", 0);
         }
@@ -51,6 +52,7 @@ public class FlamethrowerAttackRadius : MonoBehaviour
         {
             PlayersInRadius.Remove(player);
             OnPlayerExit?.Invoke(player);
+            Debug.Log("exit");
         }
     }
 

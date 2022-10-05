@@ -10,14 +10,12 @@ public class PlayerHealthController : MonoBehaviour
     private int maxHealth;
     public PlayerHealth playerHealth;
     public HealthBar healthBar;
-    //public LoseScreen loseScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         playerHealth = GameObject.Find("PlayerHealth").GetComponent<PlayerHealth>();
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
-        //loseScreen = GameObject.Find("LoseScreen").GetComponent<LoseScreen>();
         setMaxHealth();
         setInitialBodyHealth();
         healthBar.SetHealth(getHealth());
@@ -36,8 +34,7 @@ public class PlayerHealthController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        playerHealth.setSnakeHealth(getHealth() - damage);
-        //setHealth(getHealth() - damage);
+        setHealth(getHealth() - damage);
         healthBar.SetHealth(getHealth());
     }
     private void CheckDeath()
@@ -61,6 +58,7 @@ public class PlayerHealthController : MonoBehaviour
     public void setHealth(int health)
     {
         this.health = health;
+        playerHealth.setSnakeHealth(health);
     }
     public int getMaxHealth()
     {

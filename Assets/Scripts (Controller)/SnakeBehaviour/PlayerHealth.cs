@@ -9,6 +9,11 @@ public class PlayerHealth : MonoBehaviour
     private int snakeMaxHealth = 100;
 
     // Start is called before the first frame update
+    /*public PlayerHealth(int health)
+    {
+        setSnakeMaxHealth(health);
+        setSnakeHealth(getSnakeMaxHealth());
+    }*/
     void Start()
     {
         setSnakeHealth(getSnakeMaxHealth());

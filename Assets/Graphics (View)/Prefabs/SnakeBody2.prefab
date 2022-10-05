@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2150300438052491614}
   - component: {fileID: 6192423935083317014}
   - component: {fileID: 3712033561367120724}
-  - component: {fileID: 8041570443333176717}
+  - component: {fileID: -8246551924762081860}
   m_Layer: 0
   m_Name: SnakeBody2
   m_TagString: BodySides
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8041570443333176717
+--- !u!114 &-8246551924762081860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,4 +112,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
   healthBar: {fileID: 0}
-  loseScreen: {fileID: 0}
