@@ -8,16 +8,16 @@ using System.Linq;
 [DisallowMultipleComponent]
 public class FlamethrowerAttackRadius : MonoBehaviour
 {
-    public delegate void PlayerEnteredEvent(PlayerController player);
-    public delegate void PlayerExitedEvent(PlayerController player);
+    public delegate void PlayerEnteredEvent(PlayerHealthController player);
+    public delegate void PlayerExitedEvent(PlayerHealthController player);
     public event PlayerEnteredEvent OnPlayerEnter;
     public event PlayerEnteredEvent OnPlayerExit;
-
-    private List<PlayerController> PlayersInRadius = new List<PlayerController>();
+    private float tickTime = 0.1f; //changes frequency of damage
+    private List<PlayerHealthController> PlayersInRadius = new List<PlayerHealthController>();
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<PlayerController>(out PlayerController player))
+        if (other.TryGetComponent<PlayerHealthController>(out PlayerHealthController player))
         {
             PlayersInRadius.Add(player);
             OnPlayerEnter?.Invoke(player);
@@ -25,20 +25,21 @@ public class FlamethrowerAttackRadius : MonoBehaviour
         }
     }
 
-    void Start(){
+    void Start()
+    {
+
     }
-    void StartDamage(){
+    void StartDamage()
+    {
         StartCoroutine(dps());
     }
-    private IEnumerator dps(){
-        yield return new WaitForSeconds( 0.1f );
+    private IEnumerator dps()
+    {
+        yield return new WaitForSeconds(getTickTime());
         if((PlayersInRadius?.Count ?? 0) != 0){
             if(PlayersInRadius.First() != null){
-                PlayerController player = PlayersInRadius.First();
-                //float minTimeToDamage = 1f / 3f;
-                //int damagePerTick = Mathf.FloorToInt(minTimeToDamage);
-        
-                player.GetComponent<PlayerController>().TakeDamage(3);
+                PlayerHealthController player = PlayersInRadius.First();        
+                player.GetComponent<PlayerHealthController>().TakeDamage(3);
             }
         Invoke("StartDamage", 0);
         }
@@ -46,8 +47,7 @@ public class FlamethrowerAttackRadius : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        //if(other.TryGetComponent<PlayerController>())
-        if (other.TryGetComponent<PlayerController>(out PlayerController player))
+        if (other.TryGetComponent<PlayerHealthController>(out PlayerHealthController player))
         {
             PlayersInRadius.Remove(player);
             OnPlayerExit?.Invoke(player);
@@ -56,11 +56,15 @@ public class FlamethrowerAttackRadius : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (PlayerController player in PlayersInRadius)
+        foreach (PlayerHealthController player in PlayersInRadius)
         {
             OnPlayerExit?.Invoke(player);
         }
 
         PlayersInRadius.Clear();
+    }
+    public float getTickTime()
+    {
+        return this.tickTime;
     }
 }

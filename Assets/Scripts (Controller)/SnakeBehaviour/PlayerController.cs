@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
 
     // Settings
-    public int health = 100;
-    public int maxHealth = 100;
+    //public int health = 100;
+    //public int maxHealth = 100;
     public float MoveSpeed = 5;
     public float SteerSpeed = 180;
     public float bodySpeed = 5;
@@ -19,8 +19,8 @@ public class PlayerController : MonoBehaviour
 
 
     Camera attachedCam;
-    public HealthBar healthBar;
-    public LoseScreen loseScreen;
+    //public HealthBar healthBar;
+    //public LoseScreen loseScreen;
 
     //for the snake Tail/Growth
     public GameObject snakeBody;
@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
-        healthBar.SetHealth(maxHealth);
+        //healthBar.SetHealth(maxHealth);
+        GrowSnake();
         GrowSnake();
         GrowSnake();
         GrowSnake();
@@ -69,13 +70,13 @@ public class PlayerController : MonoBehaviour
         }
 
         // Health and Death
-        healthBar.SetHealth(health);
-        CheckDeath();
+        //healthBar.SetHealth(health);
+        //CheckDeath();
     }
 
   
 
-    public void TakeDamage(int damage)
+    /*public void TakeDamage(int damage)
     {
         health -= damage;
         healthBar.SetHealth(health);
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
             //loseScreen.ShowDeathScreen();
             SceneManager.LoadScene(2);
         }
-    }
+    }*/
     public void GrowSnake()
     {
         GameObject body = Instantiate(snakeBody);

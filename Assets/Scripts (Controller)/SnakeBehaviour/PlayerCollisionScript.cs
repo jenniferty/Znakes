@@ -16,7 +16,7 @@ public class PlayerCollisionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("collision ");
+        //Debug.Log("collision ");
         //  snakePlayer.GrowSnake();
 
         if (collider.CompareTag("Food"))
@@ -30,14 +30,14 @@ public class PlayerCollisionScript : MonoBehaviour
         if (collider.CompareTag("Sides"))
         {
             //Destroy(playerSnake);
-            playerSnake.GetComponent<PlayerController>().TakeDamage(100);
+            playerSnake.GetComponent<PlayerHealthController>().TakeDamage(100);
             Debug.Log("Has hit wall");
         }
 
         if (collider.CompareTag("BodySides"))
         {
             //Destroy(playerSnake);
-            playerSnake.GetComponent<PlayerController>().TakeDamage(100);
+            playerSnake.GetComponent<PlayerHealthController>().TakeDamage(100);
             Debug.Log("has hit its own body");
         }
 

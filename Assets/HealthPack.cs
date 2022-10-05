@@ -5,10 +5,11 @@ using UnityEngine;
 public class HealthPack : MonoBehaviour
 {
     public GameObject healthPack;
-    public int healAmount = 10;
+    public GameObject player;
+    private int healAmount;
     void Start()
     {
-        
+        setHealAmount(10);
     }
 
     // Update is called once per frame
@@ -25,24 +26,36 @@ public class HealthPack : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnTriggerEnter(Collider other){
-        if (other.gameObject.tag=="Player"){
-            Heal(healAmount, other);
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Heal(getHealAmount(), other);
         }
     }
 
     public void Heal(int healAmount, Collider other)
     {
-        PlayerController player = other.GetComponent<PlayerController>();
-        if (player != null)
+        PlayerHealthController playerHealth = other.GetComponent<PlayerHealthController>();
+        if (playerHealth != null)
         {
-            if (player.health > (player.maxHealth - healAmount))
+            if (playerHealth.getHealth() > (playerHealth.getMaxHealth() - healAmount))
             {
-                player.health = player.maxHealth;
-            }else{
-                player.health = player.health + healAmount;
+                playerHealth.setHealth(playerHealth.getMaxHealth());
+            }
+            else
+            {
+                playerHealth.setHealth(playerHealth.getHealth() + healAmount);
             }
             Destroy(gameObject);
         }
+    }
+    public int getHealAmount()
+    {
+        return this.healAmount;
+    }
+    public void setHealAmount(int healAmount)
+    {
+        this.healAmount = healAmount;
     }
 }
