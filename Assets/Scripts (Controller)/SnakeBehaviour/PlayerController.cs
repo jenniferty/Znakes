@@ -5,22 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
-
-    
-
-
-    // Settings
-    public int health = 100;
-    public int maxHealth = 100;
     public float MoveSpeed = 5;
     public float SteerSpeed = 180;
     public float bodySpeed = 5;
     public int Gap = 20;
-
-
     Camera attachedCam;
-    public HealthBar healthBar;
-    public LoseScreen loseScreen;
 
     //for the snake Tail/Growth
     public GameObject snakeBody;
@@ -31,10 +20,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
-        healthBar.SetHealth(maxHealth);
-        GrowSnake();
-        GrowSnake();
-        GrowSnake();
         GrowSnake();
         GrowSnake();
         GrowSnake();
@@ -59,7 +44,7 @@ public class PlayerController : MonoBehaviour
             positionHist.Insert(0, transform.position);
 
             //set to 1 so the head does not collide with the snake in the beginning
-            int index = 1;
+            int index = 2;
             foreach (var body in bodyParts)
             {
                 Vector3 point = positionHist[Mathf.Min(index * Gap, positionHist.Count - 1)];
@@ -68,27 +53,6 @@ public class PlayerController : MonoBehaviour
                 body.transform.LookAt(point);
                 index++;
             }
-        }
-
-        // Health and Death
-        healthBar.SetHealth(health);
-        CheckDeath();
-    }
-
-  
-
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        healthBar.SetHealth(health);
-    }
-    private void CheckDeath()
-    {
-        if (health <= 0)
-        {
-            //PauseGame.Pause();
-            //loseScreen.ShowDeathScreen();
-            SceneManager.LoadScene(2);
         }
     }
     public void GrowSnake()

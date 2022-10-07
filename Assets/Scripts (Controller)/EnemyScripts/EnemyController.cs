@@ -19,51 +19,64 @@ public class EnemyController : MonoBehaviour
    //for collision check
    public float radiusCheck = 2f;
 
-   void Awake(){
-    MakeInstance();
+   void Awake()
+   {
+        MakeInstance();
    }
 
-   void Start(){
-    Invoke("StartSpawning", 1f);
+   void Start()
+   {
+        Invoke("StartSpawning", 1f);
    }
 
-   void MakeInstance(){
-    if(instance == null){
-        instance = this;
-    }
-   }
-
-   void StartSpawning(){
-    StartCoroutine(SpawnPickUps());
-   }
-
-   public void CancelSpawning(){
-    CancelInvoke("StartSpawning");
-   }
-
-   IEnumerator SpawnPickUps(){
-    yield return new WaitForSeconds(Random.Range(1f, 3f));
-    if(Random.Range(0, 10) >= 2){
-        Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
-        bool check = CollisionCheck(pos);
-        if(check)
+   void MakeInstance()
+   {
+        if(instance == null)
         {
-            if(Random.Range(0, 10) >= 3){
-                Instantiate(bomb_Pickup, pos, Quaternion.identity);
-            }else{
-                Instantiate(enemy_Pickup, pos, Quaternion.identity);
-            }
+            instance = this;
+        }
+   }
+
+   void StartSpawning()
+   {
+        StartCoroutine(SpawnPickUps());
+   }
+
+   public void CancelSpawning()
+   {
+        CancelInvoke("StartSpawning");
+   }
+
+   IEnumerator SpawnPickUps()
+   {
+        yield return new WaitForSeconds(Random.Range(1f, 3f));
+        if(Random.Range(0, 10) >= 2)
+        {
+            Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
+            bool check = CollisionCheck(pos);
+            if(check)
+            {
+                if(Random.Range(0, 10) >= 3)
+                {
+                    Instantiate(bomb_Pickup, pos, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(enemy_Pickup, pos, Quaternion.identity);
+                }
             
+            }
         }
-    }else{
-        Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
-        bool check = CollisionCheck(pos);
-        if(check)
+        else
         {
-            Instantiate(health_Pickup, pos, Quaternion.identity);
+            Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
+            bool check = CollisionCheck(pos);
+            if(check)
+            {
+                Instantiate(health_Pickup, pos, Quaternion.identity);
+            }
         }
-    }
-    Invoke("StartSpawning", 0f);
+        Invoke("StartSpawning", 0f);
    }
 
    public bool CollisionCheck(Vector3 pos)

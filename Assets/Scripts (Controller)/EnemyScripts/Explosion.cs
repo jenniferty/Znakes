@@ -5,16 +5,19 @@ using UnityEngine;
 public class Explosion : MonoBehaviour
 {
     public GameObject bomb;
-    public float radius = 5f;
-    public float power = 3f;
-    public float upforce = 0f;
+    private float radius;
+    private float power;
+    private float upForce;
     public GameObject explosionPrefab;
-    public float bombTimer;
+    private float bombTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        bombTimer = Random.Range(4, 8);
+        setRadius(5f);
+        setPower(3f);
+        setUpForce(0f);
+        setBombTimer(Random.Range(4, 8));
     }
 
     // Update is called once per frame
@@ -22,15 +25,14 @@ public class Explosion : MonoBehaviour
     {
         if (bomb == enabled)
         {
-            if (bombTimer > 0)
+            if (getBombTimer() > 0)
             {
-                bombTimer -= Time.deltaTime;
+                setBombTimer(getBombTimer() - Time.deltaTime);
             }
             else{
                 Invoke("Detonate", 0);
             }
         }
-
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -42,22 +44,54 @@ public class Explosion : MonoBehaviour
     {
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         Vector3 explosionPosition = bomb.transform.position;
-        Collider[] colliders = Physics.OverlapSphere(explosionPosition, radius);
+        Collider[] colliders = Physics.OverlapSphere(explosionPosition, getRadius());
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             if(rb != null)
             {
-                rb.AddExplosionForce(power, explosionPosition, radius, upforce, ForceMode.Impulse);
+                rb.AddExplosionForce(getPower(), explosionPosition, getRadius(), getUpForce(), ForceMode.Impulse);
             }
             //hit per particle
-            PlayerController player = hit.GetComponent<PlayerController>();
-            if (player != null)
+            PlayerHealthController playerHealth = hit.GetComponent<PlayerHealthController>();
+            if (playerHealth != null)
             {
-                player.GetComponent<PlayerController>().TakeDamage(5);
+                playerHealth.GetComponent<PlayerHealthController>().TakeDamage(5);
             }
             Destroy(gameObject);
         }
 
+    }
+    public float getRadius()
+    {
+        return this.radius;
+    }
+    public void setRadius(float radius)
+    {
+        this.radius = radius;
+    }
+    public float getPower()
+    {
+        return this.power;
+    }
+    public void setPower(float power)
+    {
+        this.power = power;
+    }
+    public float getUpForce()
+    {
+        return this.upForce;
+    }
+    public void setUpForce(float upForce)
+    {
+        this.upForce = upForce;
+    }
+    public float getBombTimer()
+    {
+        return this.bombTimer;
+    }
+    public void setBombTimer(float bombTimer)
+    {
+        this.bombTimer = bombTimer;
     }
 }

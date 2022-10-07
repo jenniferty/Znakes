@@ -6,7 +6,15 @@ using TMPro;
 public class Timer : MonoBehaviour
 {
     public GameObject bomb;
-    public float time;
+    private float time;
+    public float getTime()
+    {
+        return this.time;
+    }
+    public void setTime(float time)
+    {
+        this.time = time;
+    }
     public TextMeshProUGUI timer;
     public GameObject timerUI;
     // Start is called before the first frame update
@@ -24,7 +32,7 @@ public class Timer : MonoBehaviour
 
     string GetBombTime()
     {
-        time = bomb.GetComponent<Explosion>().bombTimer;
-        return time.ToString("#.##");
+        setTime(bomb.GetComponent<Explosion>().getBombTimer());
+        return getTime().ToString("#.##");
     }
 }

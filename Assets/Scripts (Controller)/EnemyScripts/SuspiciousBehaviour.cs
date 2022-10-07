@@ -6,11 +6,11 @@ public class SuspiciousBehaviour : MonoBehaviour
 {
     public GameObject enemy;
     //public int eSize;
-    PlayerController target;
+    public Camera target;
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Player").GetComponent<PlayerController>();
+        target = GameObject.Find("Target Camera").GetComponent<Camera>();
         //eSize = player.GetComponent<PlayerController>().size;
     }
 
@@ -28,8 +28,10 @@ public class SuspiciousBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnTriggerEnter(Collider other){
-        if (other.gameObject.tag=="Player"){
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag=="Player")
+        {
             //int pSize = other.GetComponent<PlayerController>().size;
             Destroy(gameObject);
         }
