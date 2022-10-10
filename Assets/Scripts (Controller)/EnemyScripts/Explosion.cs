@@ -61,6 +61,7 @@ public class Explosion : MonoBehaviour
             Destroy(gameObject);
         }
 
+        FindObjectOfType<AudioManager>().Play("BombExplosion");
     }
     public float getRadius()
     {
