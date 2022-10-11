@@ -1664,7 +1664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: MenuTheme
-    clip: {fileID: 8300000, guid: 41628d670a90e2945b8751c2a8e265ed, type: 3}
+    clip: {fileID: 8300000, guid: 8c78cfaae89cb2946be14c2d80980947, type: 3}
     volume: 1
     pitch: 1
     loop: 1
@@ -1688,19 +1688,25 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: BombExplosion
-    clip: {fileID: 8300000, guid: 14581065d90dbfe4382327ed41172430, type: 3}
+    clip: {fileID: 8300000, guid: d6551b58813f8544ebe7181e7e02ecc1, type: 3}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: Powerup
-    clip: {fileID: 8300000, guid: 1d8459982c73d944c927bad1c2a0509d, type: 3}
+    clip: {fileID: 8300000, guid: c78919c0677aa114da01334d1a527f06, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Health
     clip: {fileID: 8300000, guid: 505cd33a616b92c44b1164d346ddcfe6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Food
+    clip: {fileID: 8300000, guid: ca33a6d4bbeeb474882da19695974334, type: 3}
     volume: 1
     pitch: 1
     loop: 0

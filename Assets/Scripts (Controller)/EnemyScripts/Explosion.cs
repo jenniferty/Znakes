@@ -59,9 +59,8 @@ public class Explosion : MonoBehaviour
                 playerHealth.GetComponent<PlayerHealthController>().TakeDamage(5);
             }
             Destroy(gameObject);
+            FindObjectOfType<AudioManager>().Play("BombExplosion");
         }
-
-        FindObjectOfType<AudioManager>().Play("BombExplosion");
     }
     public float getRadius()
     {

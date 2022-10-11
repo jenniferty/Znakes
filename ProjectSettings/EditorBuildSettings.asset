@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7ff4a2cb2aba61240bde411c16b8c101
   - enabled: 0
-    path: Assets/Experiment.unity
-    guid: 7d9a5d77aad765a48944158e248810bd
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Map.unity
     guid: 31e0bd403d3eeff41b25ad8ccadc9a7d
