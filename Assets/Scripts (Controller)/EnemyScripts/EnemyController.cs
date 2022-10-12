@@ -10,11 +10,13 @@ public class EnemyController : MonoBehaviour
    public GameObject bomb_Pickup;
    public GameObject health_Pickup;
    public GameObject enemy_Pickup;
+    public GameObject speedPowerup_Pickup;
 
     //bounds for area for bomb to spawn
     //values for testing only
    private float min_X = -25f, max_X = 25f, min_Z = -25f, max_Z = 25f;
    private float yPos = 3.8f;
+    private float yPowerupPos = 3f;
 
    //for collision check
    public float radiusCheck = 2f;
@@ -69,11 +71,25 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
-            bool check = CollisionCheck(pos);
-            if(check)
+            if (Random.Range(0, 10) >= 2)
             {
-                Instantiate(health_Pickup, pos, Quaternion.identity);
+                Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPos, Random.Range(min_Z, max_Z));
+                bool check = CollisionCheck(pos);
+                if (check)
+                {
+                    Instantiate(health_Pickup, pos, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Vector3 pos = new Vector3(Random.Range(min_X, max_X), yPowerupPos, Random.Range(min_Z, max_Z));
+                bool check = CollisionCheck(pos);
+                if (check)
+                {
+                    Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
+                    Debug.Log("speedPowerup spawned");
+                }
+
             }
         }
         Invoke("StartSpawning", 0f);
@@ -85,7 +101,7 @@ public class EnemyController : MonoBehaviour
         foreach(Collider col in colliders)
         {
             //change/add new tags as needed
-            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy")
+            if(col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" ||col.tag == "SpeedPowerup")
             {
                 return false;
             }               
