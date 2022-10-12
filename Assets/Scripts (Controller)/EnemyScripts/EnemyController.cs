@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class EnemyController : MonoBehaviour
 {
    public static EnemyController instance;
-   public EnemySpawnLocation enemySpawnLocation;
+   public ObjectSpawnLocation enemySpawnLocation;
 
    public GameObject bomb_Pickup;
    public GameObject health_Pickup;
@@ -15,8 +15,7 @@ public class EnemyController : MonoBehaviour
 
     //bounds for area for bomb to spawn
     //values for testing only
-   private float min_X = -25f, max_X = 25f, min_Z = -25f, max_Z = 25f;
-   private float y_Pos = 3.8f;
+   private float min_X, max_X, min_Z, max_Z, y_Pos;
    //for collision check
    private float radiusCheck = 2f;
 

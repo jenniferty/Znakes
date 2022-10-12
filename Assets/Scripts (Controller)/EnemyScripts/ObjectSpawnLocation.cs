@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawnLocation : MonoBehaviour
+public class ObjectSpawnLocation : MonoBehaviour
 {
     private int mapIndex;
     public float[,] coordinates;
