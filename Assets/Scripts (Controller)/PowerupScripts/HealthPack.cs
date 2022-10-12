@@ -31,6 +31,7 @@ public class HealthPack : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Heal(getHealAmount(), other);
+            FindObjectOfType<AudioManager>().Play("Health");
         }
     }
 

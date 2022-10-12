@@ -39,6 +39,8 @@ public class PlayerHealthController : MonoBehaviour
         if (getHealth() <= 0)
         {
             SceneManager.LoadScene(2);
+            FindObjectOfType<AudioManager>().Stop("GameTheme");
+            FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
     }
 

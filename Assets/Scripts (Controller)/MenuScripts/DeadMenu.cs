@@ -9,5 +9,7 @@ public class DeadMenu : MonoBehaviour
     {
         //Retrylevel: load last scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        FindObjectOfType<AudioManager>().Stop("MenuTheme");
+        FindObjectOfType<AudioManager>().Play("GameTheme");
     }
 }

@@ -1791,7 +1791,7 @@ MonoBehaviour:
   MoveSpeed: 5
   SteerSpeed: 180
   bodySpeed: 5
-  Gap: 30
+  Gap: 10
   snakeBody: {fileID: 8591942204109149397, guid: aa3d9d2ffecdebd4eaded242eba7925e, type: 3}
 --- !u!143 &602047110
 CharacterController:

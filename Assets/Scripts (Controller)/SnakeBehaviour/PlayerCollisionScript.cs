@@ -25,6 +25,7 @@ public class PlayerCollisionScript : MonoBehaviour
             foodSpawner.Spawn();
             Destroy(collider.gameObject);
             playerSnake.GrowSnake();
+            FindObjectOfType<AudioManager>().Play("Food");
         }
 
         if (collider.CompareTag("Sides"))
