@@ -38,8 +38,8 @@ public class PauseGame : MonoBehaviour
 
     public static void Resume()
     {
-            Time.timeScale = 1;
-            isPaused = false;
+        Time.timeScale = 1;
+        isPaused = false;
 
     }
 }
