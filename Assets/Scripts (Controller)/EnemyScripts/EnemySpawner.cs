@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyController : MonoBehaviour
+public class EnemySpawner : MonoBehaviour
 {
-   public static EnemyController instance;
+   public static EnemySpawner instance;
    public ObjectSpawnLocation enemySpawnLocation;
 
    public GameObject bomb_Pickup;
