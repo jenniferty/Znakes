@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float MoveSpeed = 5;
     public float SteerSpeed = 180;
     public float bodySpeed = 5;
-    public int Gap = 20;
+    public int Gap = 10;
     Camera attachedCam;
 
     //for the snake Tail/Growth
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             positionHist.Insert(0, transform.position);
 
             //set to 1 so the head does not collide with the snake in the beginning
-            int index = 2;
+            int index = 1;
             foreach (var body in bodyParts)
             {
                 Vector3 point = positionHist[Mathf.Min(index * Gap, positionHist.Count - 1)];

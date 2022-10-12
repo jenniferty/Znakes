@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6257332916753734659}
   - component: {fileID: 6257332916753734658}
   - component: {fileID: 6257332916753734657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 6257332917165855105}
   - component: {fileID: 6257332917165855104}
   - component: {fileID: 6257332917165855119}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 6257332917581090191}
   - component: {fileID: 6257332917581090190}
   - component: {fileID: 6257332917581090189}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 6257332917613777918}
   - component: {fileID: 6257332917613777917}
   - component: {fileID: 6257332917613777916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 6257332917651099537}
   - component: {fileID: 6257332917651099536}
   - component: {fileID: 6257332917651099551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,8 +503,7 @@ GameObject:
   - component: {fileID: 6257332917776063862}
   - component: {fileID: 6257332917776063861}
   - component: {fileID: -3201847319841897017}
-  - component: {fileID: 1040375140547369075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SuspiciousEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -717,7 +716,7 @@ GameObject:
   - component: {fileID: 6257332918356975172}
   - component: {fileID: 6257332918356975174}
   - component: {fileID: 6257332918356975173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -905,7 +904,7 @@ GameObject:
   - component: {fileID: 6257332918583847047}
   - component: {fileID: 6257332918583847045}
   - component: {fileID: 6257332918583847161}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: AttackRadius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,6 +970,18 @@ PrefabInstance:
     - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_Name
       value: FlameThrower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1634767862067424, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685911702664702, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819868529388052, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4584431484625042, guid: 007c57e2df8e9b144b99f471b84f3d56, type: 3}
       propertyPath: m_RootOrder
