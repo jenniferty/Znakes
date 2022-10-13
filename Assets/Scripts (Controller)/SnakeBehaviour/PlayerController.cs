@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             positionHist.Insert(0, transform.position);
 
             //set to 1 so the head does not collide with the snake in the beginning
-            int index = 1;
+            int index = 2;
             foreach (var body in bodyParts)
             {
                 Vector3 point = positionHist[Mathf.Min(index * Gap, positionHist.Count - 1)];
