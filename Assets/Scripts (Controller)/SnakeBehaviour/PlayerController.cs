@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
-    public float MoveSpeed = 5;
-    public float SteerSpeed = 180;
-    public float bodySpeed = 5;
-    public int Gap = 10;
+    [SerializeField] private float moveSpeed = 5;
+    [SerializeField] private float steerSpeed = 180;
+    [SerializeField] private float bodySpeed = 5;
+    [SerializeField] private int gap = 10;
     Camera attachedCam;
 
     //for the snake Tail/Growth
@@ -31,11 +31,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //new movementcode
-        transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
 
         float steerDirection = Input.GetAxis("Horizontal");
-        transform.Rotate(Vector3.up * steerDirection * SteerSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
 
 
         if (!PauseGame.isPaused)
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             int index = 2;
             foreach (var body in bodyParts)
             {
-                Vector3 point = positionHist[Mathf.Min(index * Gap, positionHist.Count - 1)];
+                Vector3 point = positionHist[Mathf.Min(index * gap, positionHist.Count - 1)];
                 Vector3 moveDirection = point - body.transform.position;
                 body.transform.position += moveDirection * bodySpeed * Time.deltaTime;
                 body.transform.LookAt(point);
@@ -59,5 +59,44 @@ public class PlayerController : MonoBehaviour
     {
         GameObject body = Instantiate(snakeBody);
         bodyParts.Add(body);
+    }
+
+    public float getMoveSpeed()
+    {
+        return this.moveSpeed;
+    }
+    public float getSteerSpeed()
+    {
+        return this.steerSpeed;
+    }
+    public float getBodySpeed()
+    {
+        return this.bodySpeed;
+    }
+    public int getGap()
+    {
+        return this.gap;
+    }
+    public void setMoveSpeed(float moveSpeed)
+    {
+        this.moveSpeed = moveSpeed;
+    }
+    public void setSteerSpeed(float steerSpeed)
+    {
+        this.steerSpeed = steerSpeed;
+    }
+    public void setBodySpeed(float bodySpeed)
+    {
+        this.bodySpeed = bodySpeed;
+    }
+    public void setGap(int gap)
+    {
+        this.gap = gap;
+    }
+
+    public void setSpeed(float speed)
+    {
+        setMoveSpeed(speed);
+        setBodySpeed(speed);
     }
 }

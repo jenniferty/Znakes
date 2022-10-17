@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -254,6 +254,7 @@ MonoBehaviour:
   bomb_Pickup: {fileID: 7593290656839984577, guid: 7e70afa80db46bb42b740f23448fcdd9, type: 3}
   health_Pickup: {fileID: 4346595497363003704, guid: da0488277fc73a04c883b9fdb62d516d, type: 3}
   enemy_Pickup: {fileID: 6257332917776063860, guid: 0239cca7c794b874382484d7bd2b3191, type: 3}
+  speedPowerup_Pickup: {fileID: 8544956868963094252, guid: 69403df02b5eb8145a5848d77e21cbe0, type: 3}
 --- !u!4 &10858014
 Transform:
   m_ObjectHideFlags: 0
@@ -1702,6 +1703,7 @@ GameObject:
   - component: {fileID: 602047111}
   - component: {fileID: 602047112}
   - component: {fileID: 602047113}
+  - component: {fileID: 602047114}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1789,10 +1791,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b904893ed693144a9c0ef45a6592d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  SteerSpeed: 180
+  moveSpeed: 5
+  steerSpeed: 180
   bodySpeed: 5
-  Gap: 10
+  gap: 10
   snakeBody: {fileID: 8591942204109149397, guid: aa3d9d2ffecdebd4eaded242eba7925e, type: 3}
 --- !u!143 &602047110
 CharacterController:
@@ -1854,6 +1856,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1569802587}
   healthBar: {fileID: 1106691031}
+--- !u!114 &602047114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602047103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945a8836c8f66a945ae15b78bde38c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 602047109}
 --- !u!1 &607658398
 GameObject:
   m_ObjectHideFlags: 0
@@ -4165,6 +4180,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+--- !u!1 &1780838681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8591942204109149397, guid: aa3d9d2ffecdebd4eaded242eba7925e, type: 3}
+  m_PrefabInstance: {fileID: 1048793847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780838682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780838681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945a8836c8f66a945ae15b78bde38c7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
 --- !u!1 &1901925215
 GameObject:
   m_ObjectHideFlags: 0
