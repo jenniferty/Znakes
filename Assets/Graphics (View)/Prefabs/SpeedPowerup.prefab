@@ -97,7 +97,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8384128525839834907
 Rigidbody:
@@ -129,5 +129,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedPowerup: {fileID: 8544956868963094252}
   speedController: {fileID: 0}
+  playerController: {fileID: 0}
   speedMultiplier: 1.7
   abilityTimer: 20

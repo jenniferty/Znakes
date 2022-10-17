@@ -67,11 +67,11 @@ public class PlayerController : MonoBehaviour
     }
     public float getSteerSpeed()
     {
-        return this.moveSpeed;
+        return this.steerSpeed;
     }
     public float getBodySpeed()
     {
-        return this.moveSpeed;
+        return this.bodySpeed;
     }
     public int getGap()
     {
@@ -94,4 +94,9 @@ public class PlayerController : MonoBehaviour
         this.gap = gap;
     }
 
+    public void setSpeed(float speed)
+    {
+        setMoveSpeed(speed);
+        setBodySpeed(speed);
+    }
 }

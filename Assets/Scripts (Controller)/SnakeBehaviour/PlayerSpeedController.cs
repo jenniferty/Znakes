@@ -11,14 +11,19 @@ public class PlayerSpeedController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
-        baseSpeed = playerController.getMoveSpeed();
+       // StartCoroutine(pause1Sec());
+       // baseSpeed = playerController.getMoveSpeed();
+    }
+
+    IEnumerator pause1Sec()
+    {
+        yield return new WaitForSeconds(1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.currentSpeed = playerController.getMoveSpeed();
+       //this.currentSpeed = playerController.getMoveSpeed();
     }
 
     public void setSpeed(float speed)
