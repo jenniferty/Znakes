@@ -98,6 +98,7 @@ public class EnemyController : MonoBehaviour
                 if (check)
                 {
                     Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
+                    Debug.Log("speedPowerup spawned");
                 }
 
             }
@@ -111,7 +112,7 @@ public class EnemyController : MonoBehaviour
         foreach (Collider col in colliders)
         {
             //change/add new tags as needed
-            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup") ;
+            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup")
             {
                 return false;
             }
