@@ -82,28 +82,33 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            if (Random.Range(0, 10) >= 2)
+            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
+            bool check = CollisionCheck(pos);
+            if (check)
             {
-                Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-                bool check = CollisionCheck(pos);
-                if (check)
+                if (Random.Range(0, 10) >= 4)
                 {
                     Instantiate(health_Pickup, pos, Quaternion.identity);
                 }
-            }
-            else
-            {
-                Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-                bool check = CollisionCheck(pos);
-                if (check)
+                else
                 {
                     Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
                     Debug.Log("speedPowerup spawned");
                 }
-
             }
         }
         Invoke("StartSpawning", 0f);
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown("t"))
+        {
+            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
+            Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
+            Debug.Log("speedPowerup spawned");
+        }
     }
 
     public bool CollisionCheck(Vector3 pos)

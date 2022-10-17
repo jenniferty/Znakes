@@ -5,8 +5,11 @@ using UnityEngine;
 public class SpeedPowerup : MonoBehaviour
 {
     public GameObject speedPowerup;
-    public GameObject player;
-    private int speedMultiplier;
+    public PlayerSpeedController speedController;
+    //[SerializeField] private bool isActive = false;
+    [SerializeField] private float speedMultiplier = 1.7f;
+    [SerializeField] private float abilityTimer = 20f;
+    //[SerializeField] private float additionalTime = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +20,7 @@ public class SpeedPowerup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Remove pickup after 10 seconds
         if (speedPowerup == enabled)
         {
             Invoke("TimeOut", 10);
@@ -28,37 +32,53 @@ public class SpeedPowerup : MonoBehaviour
         Destroy(gameObject);
     }
 
+    IEnumerator ActiveTimer()
+    {
+        Debug.Log("Starting timer");
+        yield return new WaitForSeconds(abilityTimer);
+        backToBaseSpeed();
+        Debug.Log("Speed Powerup used up");
+
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            MultiplySpeed(getSpeedMultiplier(), other);
+            setSpeedController(other);
+            //MultiplySpeed(getSpeedMultiplier(), other);
+            PlayerSpeedController playerObject = other.GetComponent<PlayerController>().GetComponent<PlayerSpeedController>();
+            if (playerObject == null)
+            {
+                Debug.Log("FindWithTag returned null for Player tag");
+            }
+            StartCoroutine(ActiveTimer());
         }
     }
 
-    public void MultiplySpeed(int healAmount, Collider other)
+    public void MultiplySpeed(float speedMultiplier, Collider other)
     {
-        // CHANGE TO SPEEDCONTROLLER
-        PlayerHealthController playerHealth = other.GetComponent<PlayerHealthController>();
-        if (playerHealth != null)
         {
-            if (playerHealth.getHealth() > (playerHealth.getMaxHealth() - healAmount))
-            {
-                playerHealth.setHealth(playerHealth.getMaxHealth());
-            }
-            else
-            {
-                playerHealth.setHealth(playerHealth.getHealth() + healAmount);
-            }
-            Destroy(gameObject);
+            other.GetComponent<PlayerSpeedController>().setSpeed(speedController.getCurrentSpeed() * getSpeedMultiplier());
         }
+        Destroy(gameObject);    // Remove Pickup
     }
-    public int getSpeedMultiplier()
+
+    public void backToBaseSpeed()
+    {
+        speedController.setSpeed(speedController.getBaseSpeed());
+    }
+    
+    public float getSpeedMultiplier()
     {
         return this.speedMultiplier;
     }
     public void setSpeedMultiplier(int speedMultiplier)
     {
         this.speedMultiplier = speedMultiplier;
+    }
+    public void setSpeedController(Collider other)
+    {
+        this.speedController = other.GetComponent<PlayerController>().GetComponent<PlayerSpeedController>();
     }
 }
