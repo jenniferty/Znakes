@@ -9,7 +9,7 @@ public class SpeedPowerup : MonoBehaviour
     public PlayerController playerController;
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float steerSpeedMultiplier = 1.3f;
-    [SerializeField] private float abilityTimer = 20f;
+    [SerializeField] private float abilityTimer = 10f;
     private Stack<float> speedStack = new Stack<float>();
     private Stack<float> steerSpeedStack = new Stack<float>();
 
