@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour
     public GameObject bomb_Pickup;
     public GameObject health_Pickup;
     public GameObject enemy_Pickup;
+    public GameObject speedPowerup_Pickup;
     public float[,] coordinates;
 
     //bounds for area for bomb to spawn
@@ -81,11 +82,24 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-            bool check = CollisionCheck(pos);
-            if (check)
+            if (Random.Range(0, 10) >= 2)
             {
-                Instantiate(health_Pickup, pos, Quaternion.identity);
+                Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
+                bool check = CollisionCheck(pos);
+                if (check)
+                {
+                    Instantiate(health_Pickup, pos, Quaternion.identity);
+                }
+            }
+            else
+            {
+                Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
+                bool check = CollisionCheck(pos);
+                if (check)
+                {
+                    Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
+                }
+
             }
         }
         Invoke("StartSpawning", 0f);
@@ -97,7 +111,7 @@ public class EnemyController : MonoBehaviour
         foreach (Collider col in colliders)
         {
             //change/add new tags as needed
-            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy")
+            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup") ;
             {
                 return false;
             }

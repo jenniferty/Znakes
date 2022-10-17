@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -254,6 +254,7 @@ MonoBehaviour:
   bomb_Pickup: {fileID: 7593290656839984577, guid: 7e70afa80db46bb42b740f23448fcdd9, type: 3}
   health_Pickup: {fileID: 4346595497363003704, guid: da0488277fc73a04c883b9fdb62d516d, type: 3}
   enemy_Pickup: {fileID: 6257332917776063860, guid: 0239cca7c794b874382484d7bd2b3191, type: 3}
+  speedPowerup_Pickup: {fileID: 8544956868963094252, guid: 69403df02b5eb8145a5848d77e21cbe0, type: 3}
 --- !u!4 &10858014
 Transform:
   m_ObjectHideFlags: 0
