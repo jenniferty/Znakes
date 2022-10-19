@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2289259127733787018}
   - component: {fileID: 2289259127733787020}
   - component: {fileID: 2289259127733787021}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BombBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2289259127885691371}
   - component: {fileID: 2289259127885691373}
   - component: {fileID: 2289259127885691370}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BombWick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 2289259128887771836}
   - component: {fileID: 2289259128887771838}
   - component: {fileID: 2289259128887771839}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BombTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 3834543420251586956}
   - component: {fileID: 3834543420251586952}
   - component: {fileID: 7015978980889890687}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Bomb
   m_TagString: Bomb
   m_Icon: {fileID: 0}
