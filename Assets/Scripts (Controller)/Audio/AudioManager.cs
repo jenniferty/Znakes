@@ -75,6 +75,12 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    public void playGameStopMenuTheme()
+    {
+        Stop("MenuTheme");
+        Play("GameTheme");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
