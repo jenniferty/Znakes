@@ -5,17 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour 
 {
-<<<<<<< HEAD
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private float steerSpeed = 180;
     [SerializeField] private float bodySpeed = 5;
     [SerializeField] private int gap = 10;
-=======
-    public float MoveSpeed = 5;
-    public float SteerSpeed = 180;
-    public float bodySpeed = 5;
-    public int Gap = 20;
->>>>>>> parent of 22dc2eb3 (Merge branch 'main' into audioTesting)
     Camera attachedCam;
 
     //for the snake Tail/Growth
