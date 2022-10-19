@@ -5,11 +5,12 @@ using UnityEngine;
 public class SuspiciousBehaviour : MonoBehaviour
 {
     public GameObject enemy;
-    //public int eSize;
+    public EnemyHealthController enemyHealthController;
     public Camera target;
     // Start is called before the first frame update
     void Start()
     {
+        //suspiciousHealthController = GameObject.Find("SuspiciousHealth").GetComponent<SuspiciousHealthController>();
         target = GameObject.Find("Target Camera").GetComponent<Camera>();
         //eSize = player.GetComponent<PlayerController>().size;
     }
@@ -30,9 +31,8 @@ public class SuspiciousBehaviour : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag=="Player")
+        if (other.gameObject.tag=="Player" && enemyHealthController.getEdible())
         {
-            //int pSize = other.GetComponent<PlayerController>().size;
             Destroy(gameObject);
         }
     }

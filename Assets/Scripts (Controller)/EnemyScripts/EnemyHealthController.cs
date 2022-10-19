@@ -9,14 +9,23 @@ public class EnemyHealthController : MonoBehaviour
     private int health;
     private int maxHealth;
     private int edibleHealth;
+    private int level;
     private bool isEdible = false;
-    public EnemyHealth enemyHealth;
+    public PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        setLevel(playerController.getBodyCount());
+        Debug.Log(getLevel());
+        setMaxHealth();
         setHealth(getMaxHealth());
+        Debug.Log(getMaxHealth());
+        Debug.Log(getHealth());
         setEdibleHealth(getMaxHealth());
+        Debug.Log(getEdibleHealth());
+        Debug.Log(getEdible());
     }
 
     // Update is called once per frame
@@ -28,6 +37,7 @@ public class EnemyHealthController : MonoBehaviour
     {
         setHealth(getHealth() - damage);
         CheckEdible();
+        Debug.Log(getHealth());
     }
     public void CheckEdible()
     {
@@ -51,7 +61,8 @@ public class EnemyHealthController : MonoBehaviour
     }
     public void setMaxHealth()
     {
-        this.maxHealth = enemyHealth.maxHealth;
+
+        this.maxHealth = getLevel() * 10;
     }
     public bool getEdible()
     {
@@ -67,8 +78,22 @@ public class EnemyHealthController : MonoBehaviour
     }
     public void setEdibleHealth(int maxhealth)
     {
-        //int eHealth = (int)Mathf.Ceil(maxhealth/2);
         this.edibleHealth = (int)Mathf.Ceil(maxhealth/2);
     }
-
+    public int getLevel()
+    {
+        return level;
+    }
+    public void setLevel(int playersize)
+    {
+        int minLevel;
+        int maxLevel = playersize + 10;
+        if((playersize - 5)<= 0)
+        {
+            minLevel = 1;
+        }else{
+            minLevel = playersize - 5;
+        }
+        this.level = Random.Range(minLevel, maxLevel);
+    }
 }

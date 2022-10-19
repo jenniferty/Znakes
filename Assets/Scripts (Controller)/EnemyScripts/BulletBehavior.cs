@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
+    private int damageMultiplier;
+    public PlayerController playerController;
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        Debug.Log(playerController.getBodyCount());
+        setDamageMultiplier(1);
         Destroy(gameObject, 4f);
     }
 
@@ -15,10 +20,19 @@ public class BulletBehavior : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        EnemyHealthController enemyHealth = collision.GetComponent<EnemyHealthController>();
-        if (enemyHealth != null)
+        if(collision.gameObject.CompareTag("Enemy"))
         {
-            enemyHealth.GetComponent<EnemyHealthController>().TakeDamage(5);
+            EnemyHealthController enemyHealth = collision.gameObject.GetComponent<EnemyHealthController>();
+            enemyHealth.TakeDamage(playerController.getBodyCount() * getDamageMultiplier());
+            Destroy(gameObject);
         }
+    }
+    public int getDamageMultiplier()
+    {
+        return damageMultiplier;
+    }
+    public void setDamageMultiplier(int damageMultiplier)
+    {
+        this.damageMultiplier = damageMultiplier;
     }
 }

@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1811582388318936815}
+  enemyHealthController: {fileID: 0}
   target: {fileID: 0}
 --- !u!82 &3548323149661325211
 AudioSource:
@@ -1297,6 +1298,7 @@ GameObject:
   - component: {fileID: 6257332917776063861}
   - component: {fileID: -3201847319841897017}
   - component: {fileID: 1040375140547369075}
+  - component: {fileID: 6369759147509668420}
   m_Layer: 6
   m_Name: SuspiciousEnemy
   m_TagString: Enemy
@@ -1403,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6257332917776063860}
+  enemyHealthController: {fileID: 0}
   target: {fileID: 0}
 --- !u!82 &1040375140547369075
 AudioSource:
@@ -1500,6 +1503,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6369759147509668420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257332917776063860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f11975364c5d044db5ce95f6a7f1ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6257332918356975171
 GameObject:
   m_ObjectHideFlags: 0
