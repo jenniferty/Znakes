@@ -6,12 +6,9 @@ public class SpeedPowerup : MonoBehaviour
 {
     public GameObject speedPowerup;
     public PlayerSpeedController speedController;
-    public PlayerController playerController;
     [SerializeField] private float speedMultiplier = 1.5f;
     [SerializeField] private float steerSpeedMultiplier = 1.3f;
     [SerializeField] private float abilityTimer = 10f;
-    private Stack<float> speedStack = new Stack<float>();
-    private Stack<float> steerSpeedStack = new Stack<float>();
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +35,7 @@ public class SpeedPowerup : MonoBehaviour
     {
         Debug.Log("Starting speed timer");
         yield return new WaitForSeconds(abilityTimer);
-        backToPreviousSpeed();
+        speedController.backToPreviousSpeed();
         Debug.Log("Speed Powerup used up");
 
     }
@@ -47,8 +44,8 @@ public class SpeedPowerup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            setPlayerController(other);
-            saveCurrentSpeed();
+            setSpeedController(other);
+            speedController.saveCurrentSpeed();
             MultiplySpeed(getSpeedMultiplier());
             StartCoroutine(ActiveTimer());
             Destroy(gameObject);
@@ -58,22 +55,9 @@ public class SpeedPowerup : MonoBehaviour
     public void MultiplySpeed(float speedMultiplier)
     {
         {
-            playerController.setSpeed(speedStack.Peek() * getSpeedMultiplier());
-            playerController.setSteerSpeed(steerSpeedStack.Peek() * getSteerSpeedMultiplier());
+            speedController.setSpeed(speedController.getPreviousSpeed() * getSpeedMultiplier());
+            speedController.setSteerSpeed(speedController.getPreviousSteerSpeed() * getSteerSpeedMultiplier());
         }
-        Destroy(gameObject);    // Remove PickupspeedStack.Pop()
-    }
-
-    public void backToPreviousSpeed()
-    {
-        playerController.setSpeed(speedStack.Pop());
-        playerController.setSteerSpeed(steerSpeedStack.Pop());
-    }
-
-    public void saveCurrentSpeed()
-    {
-        speedStack.Push(playerController.getMoveSpeed());
-        steerSpeedStack.Push(playerController.getSteerSpeed());
     }
     
     public float getSpeedMultiplier()
@@ -88,8 +72,8 @@ public class SpeedPowerup : MonoBehaviour
     {
         this.speedMultiplier = speedMultiplier;
     }
-    public void setPlayerController(Collider other)
+    public void setSpeedController(Collider other)
     {
-        this.playerController = other.GetComponent<PlayerController>();
+        speedController = other.GetComponent<PlayerSpeedController>();
     }
 }

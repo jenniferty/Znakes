@@ -5,25 +5,32 @@ using UnityEngine;
 public class PlayerSpeedController : MonoBehaviour
 {
     public PlayerController playerController;
-    private float baseSpeed;
-    private float currentSpeed;
+
+    private Stack<float> speedStack = new Stack<float>();
+    private Stack<float> steerSpeedStack = new Stack<float>();
 
     // Start is called before the first frame update
     void Start()
     {
-       // StartCoroutine(pause1Sec());
-       // baseSpeed = playerController.getMoveSpeed();
-    }
-
-    IEnumerator pause1Sec()
-    {
-        yield return new WaitForSeconds(1);
+        playerController = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       //this.currentSpeed = playerController.getMoveSpeed();
+        //this.currentSpeed = playerController.getMoveSpeed();
+    }
+
+    public void backToPreviousSpeed()
+    {
+        setSpeed(speedStack.Pop());
+        setSteerSpeed(steerSpeedStack.Pop());
+    }
+
+    public void saveCurrentSpeed()
+    {
+        speedStack.Push(playerController.getMoveSpeed());
+        steerSpeedStack.Push(playerController.getSteerSpeed());
     }
 
     public void setSpeed(float speed)
@@ -31,12 +38,16 @@ public class PlayerSpeedController : MonoBehaviour
         playerController.setMoveSpeed(speed);
         playerController.setBodySpeed(speed);
     }
-    public float getBaseSpeed()
+    public void setSteerSpeed(float steerSpeed)
     {
-        return this.baseSpeed;
+        playerController.setSteerSpeed(steerSpeed);
     }
-    public float getCurrentSpeed()
+    public float getPreviousSpeed()
     {
-        return this.currentSpeed;
+        return speedStack.Peek();
+    }
+    public float getPreviousSteerSpeed()
+    {
+        return steerSpeedStack.Peek();
     }
 }
