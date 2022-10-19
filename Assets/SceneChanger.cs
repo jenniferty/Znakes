@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class SceneChanger : MonoBehaviour
 {
     public static Stack<string> sceneHistory = new Stack<string>();
+    private AudioManager audioManager;
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
-     public static void LoadScene(string newScene)
+    public static void LoadScene(string newScene)
     {
         sceneHistory.Push(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(newScene);
@@ -15,7 +20,8 @@ public class SceneChanger : MonoBehaviour
 
     public void PreviousScene()
     {
-            SceneChanger.LoadScene(sceneHistory.Peek());
+        audioManager.playGameStopMenuTheme();
+        SceneChanger.LoadScene(sceneHistory.Peek());
     }
 
 }
