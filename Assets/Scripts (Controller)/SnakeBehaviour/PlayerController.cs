@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private float steerSpeed = 180;
     [SerializeField] private float bodySpeed = 5;
-    [SerializeField] private int gap = 10;
+    [SerializeField] private int gap = 15;
     Camera attachedCam;
 
     //for the snake Tail/Growth
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //new movementcode
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
             positionHist.Insert(0, transform.position);
 
             //set to 1 so the head does not collide with the snake in the beginning
-            int index = 2;
+            int index = 1;
             foreach (var body in bodyParts)
             {
                 Vector3 point = positionHist[Mathf.Min(index * gap, positionHist.Count - 1)];
