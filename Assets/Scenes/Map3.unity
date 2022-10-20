@@ -1796,6 +1796,8 @@ MonoBehaviour:
   bodySpeed: 5
   gap: 15
   snakeBody: {fileID: 8591942204109149397, guid: aa3d9d2ffecdebd4eaded242eba7925e, type: 3}
+  isSprinting: 0
+  sprintMultiplier: 3
 --- !u!143 &602047110
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1822,10 +1824,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 602047103}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &602047112
