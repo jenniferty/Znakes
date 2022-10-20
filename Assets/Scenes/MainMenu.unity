@@ -8340,6 +8340,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[0].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[1].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[2].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[3].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[4].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[5].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[6].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    - target: {fileID: 5349468107172978300, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
+      propertyPath: sounds.Array.data[7].mixer
+      value: 
+      objectReference: {fileID: 24300002, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
     - target: {fileID: 5349468107172978301, guid: cdfac64f516000a48bbb6ec89b86c4a0, type: 3}
       propertyPath: m_RootOrder
       value: 3
