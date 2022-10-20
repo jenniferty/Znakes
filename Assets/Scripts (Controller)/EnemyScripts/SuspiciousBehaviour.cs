@@ -10,17 +10,20 @@ public class SuspiciousBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //suspiciousHealthController = GameObject.Find("SuspiciousHealth").GetComponent<SuspiciousHealthController>();
+        enemyHealthController = GetComponent<EnemyHealthController>();
         target = GameObject.Find("Target Camera").GetComponent<Camera>();
-        //eSize = player.GetComponent<PlayerController>().size;
     }
 
     void Update()
     {
         transform.LookAt(transform.position + target.transform.rotation * Vector3.forward, target.transform.rotation * Vector3.up);
+        if(enemyHealthController.getEdible())
+        {
+            enemy.transform.Find("FlameThrower").gameObject.SetActive(false);
+        }
         if (enemy == enabled)
         {
-            Invoke("TimeOut", 10);
+            Invoke("TimeOut", 15);
         }
     }
 

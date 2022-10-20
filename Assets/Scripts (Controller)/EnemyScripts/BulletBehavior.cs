@@ -26,6 +26,12 @@ public class BulletBehavior : MonoBehaviour
             enemyHealth.TakeDamage(playerController.getBodyCount() * getDamageMultiplier());
             Destroy(gameObject);
         }
+        if(collision.gameObject.CompareTag("Bomb"))
+        {
+            Explosion bomb = collision.gameObject.GetComponent<Explosion>();
+            bomb.Detonate();
+            Destroy(gameObject);
+        }
     }
     public int getDamageMultiplier()
     {
