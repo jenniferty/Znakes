@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float steerSpeed = 180;
     [SerializeField] private float bodySpeed = 5;
     [SerializeField] private int gap = 15;
+    private int bodyCount = 0;
     Camera attachedCam;
 
     //for the snake Tail/Growth
@@ -36,15 +37,21 @@ public class PlayerController : MonoBehaviour
         //sprint functions
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            MoveSpeed = 10;
+            /*MoveSpeed = 10;
             bodySpeed = 10;
-            Gap = 5;
+            Gap = 5;*/
+            setMoveSpeed(10f);
+            setBodySpeed(10f);
+            setGap(5);
         }
         else
         {
-            MoveSpeed = 5;
+            /*MoveSpeed = 5;
             bodySpeed = 5;
-            Gap = 10;
+            Gap = 10;*/
+            setMoveSpeed(5f);
+            setBodySpeed(5f);
+            setGap(10);
         }
 
         //new movementcode
@@ -87,6 +94,15 @@ public class PlayerController : MonoBehaviour
     {
         GameObject body = Instantiate(snakeBody);
         bodyParts.Add(body);
+        setBodyCount(getBodyCount() + 1);
+    }
+    public int getBodyCount()
+    {
+        return bodyCount;
+    }
+    public void setBodyCount(int bodyCount)
+    {
+        this.bodyCount = bodyCount;
     }
 
     public float getMoveSpeed()
