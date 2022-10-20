@@ -6,12 +6,18 @@ public class SuspiciousBehaviour : MonoBehaviour
 {
     public GameObject enemy;
     public EnemyHealthController enemyHealthController;
+    public PlayerController playerController;
     public Camera target;
     // Start is called before the first frame update
     void Start()
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         target = GameObject.Find("Target Camera").GetComponent<Camera>();
+        if (enemy == enabled)
+        {
+            Invoke("TimeOut", 15);
+        }
     }
 
     void Update()
@@ -21,9 +27,9 @@ public class SuspiciousBehaviour : MonoBehaviour
         {
             enemy.transform.Find("FlameThrower").gameObject.SetActive(false);
         }
-        if (enemy == enabled)
+        if(enemyHealthController.getHealth() <= 0)
         {
-            Invoke("TimeOut", 15);
+            CancelInvoke("TimeOut");
         }
     }
 
@@ -37,6 +43,7 @@ public class SuspiciousBehaviour : MonoBehaviour
         if (other.gameObject.tag=="Player" && enemyHealthController.getEdible())
         {
             Destroy(gameObject);
+            playerController.GrowSnake();
         }
     }
 }

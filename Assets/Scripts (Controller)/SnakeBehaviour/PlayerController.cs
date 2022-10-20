@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private List<GameObject> bodyParts = new List<GameObject>();
     private List<Vector3> positionHist = new List<Vector3>();
 
+    public bool isSprinting = false;
+    // public float sprintMultiplier;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,13 +34,43 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //sprint functions
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            /*MoveSpeed = 10;
+            bodySpeed = 10;
+            Gap = 5;*/
+            setMoveSpeed(10f);
+            setBodySpeed(10f);
+            setGap(5);
+        }
+        else
+        {
+            /*MoveSpeed = 5;
+            bodySpeed = 5;
+            Gap = 10;*/
+            setMoveSpeed(5f);
+            setBodySpeed(5f);
+            setGap(10);
+        }
+
         //new movementcode
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
-
 
         float steerDirection = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
 
+        //sprint functions, changeing speed
+        // if (isSprinting == true) 
+        // {
+        //     MoveSpeed *= sprintMultiplier;
+        //     // bodySpeed *= sprintMultiplier;
+        // }
+        // else
+        // {
+        //     MoveSpeed = 5;
+        //     // bodySpeed = 5;
+        // }
 
         if (!PauseGame.isPaused)
         {
@@ -55,6 +88,7 @@ public class PlayerController : MonoBehaviour
                 index++;
             }
         }
+        
     }
     public void GrowSnake()
     {
