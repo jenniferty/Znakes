@@ -40,7 +40,7 @@ public class Explosion : MonoBehaviour
         Detonate();
     }
 
-    void Detonate()
+    public void Detonate()
     {
         Instantiate(explosionPrefab, transform.position, transform.rotation);
         Vector3 explosionPosition = bomb.transform.position;

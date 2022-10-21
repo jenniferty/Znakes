@@ -9692,9 +9692,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4361801158873524}
-  - component: {fileID: -9193760489811204474}
   - component: {fileID: 198656289721292014}
   - component: {fileID: 199514137936353666}
+  - component: {fileID: 2352955298423398257}
   m_Layer: 0
   m_Name: SmallExplosion
   m_TagString: Untagged
@@ -9720,18 +9720,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &-9193760489811204474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1828176872806910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7cb982834a226b4ea1ae9fb55920adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!198 &198656289721292014
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -14608,6 +14596,18 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2352955298423398257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828176872806910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c76989e10659147a1aad17f57aef63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1834016579923706
 GameObject:
   m_ObjectHideFlags: 0
