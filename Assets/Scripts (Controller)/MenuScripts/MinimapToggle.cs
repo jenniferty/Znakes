@@ -5,12 +5,13 @@ using UnityEngine;
 public class MinimapToggle : MonoBehaviour
 {
     public static bool isActive = true;
+
     public GameObject minimap;
 
     // Start is called before the first frame update
     void Start()
     {
-       
+       //minimap = minimap.GetComponent<GameObject>();
     }
 
     // Update is called once per frame
@@ -37,7 +38,8 @@ public class MinimapToggle : MonoBehaviour
 
     public void MapToggleOff()
     {
-        minimap.SetActive(false);
-        isActive = false;
+            minimap.SetActive(false);
+            isActive = false;
+
     }
 }
