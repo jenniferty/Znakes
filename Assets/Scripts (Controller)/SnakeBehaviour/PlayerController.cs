@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private List<Vector3> positionHist = new List<Vector3>();
 
     public bool isSprinting = false;
-    // public float sprintMultiplier;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             MoveSpeed = 10;
             bodySpeed = 10;
-            Gap = 6;
+            Gap = 5;
         }
         else
         {
@@ -52,18 +51,6 @@ public class PlayerController : MonoBehaviour
 
         float steerDirection = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up * steerDirection * SteerSpeed * Time.deltaTime);
-
-        //sprint functions, changeing speed
-        // if (isSprinting == true) 
-        // {
-        //     MoveSpeed *= sprintMultiplier;
-        //     // bodySpeed *= sprintMultiplier;
-        // }
-        // else
-        // {
-        //     MoveSpeed = 5;
-        //     // bodySpeed = 5;
-        // }
 
         if (!PauseGame.isPaused)
         {
