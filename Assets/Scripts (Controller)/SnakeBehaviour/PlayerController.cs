@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //new movementcode
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
