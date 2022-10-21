@@ -5,31 +5,21 @@ using UnityEngine;
 public class SuspiciousBehaviour : MonoBehaviour
 {
     public GameObject enemy;
-    public EnemyHealthController enemyHealthController;
-    public PlayerController playerController;
+    //public int eSize;
     public Camera target;
     // Start is called before the first frame update
     void Start()
     {
-        enemyHealthController = GetComponent<EnemyHealthController>();
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         target = GameObject.Find("Target Camera").GetComponent<Camera>();
-        if (enemy == enabled)
-        {
-            Invoke("TimeOut", 15);
-        }
+        //eSize = player.GetComponent<PlayerController>().size;
     }
 
     void Update()
     {
         transform.LookAt(transform.position + target.transform.rotation * Vector3.forward, target.transform.rotation * Vector3.up);
-        if(enemyHealthController.getEdible())
+        if (enemy == enabled)
         {
-            enemy.transform.Find("FlameThrower").gameObject.SetActive(false);
-        }
-        if(enemyHealthController.getHealth() <= 0)
-        {
-            CancelInvoke("TimeOut");
+            Invoke("TimeOut", 10);
         }
     }
 
@@ -40,10 +30,10 @@ public class SuspiciousBehaviour : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag=="Player" && enemyHealthController.getEdible())
+        if (other.gameObject.tag=="Player")
         {
+            //int pSize = other.GetComponent<PlayerController>().size;
             Destroy(gameObject);
-            playerController.GrowSnake();
         }
     }
 }
