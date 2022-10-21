@@ -57,11 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6019592260272594983, guid: b2c77bad359fa8b43beb921690c436a7, type: 3}
       propertyPath: m_Name
-      value: SBodywHealth
-      objectReference: {fileID: 0}
-    - target: {fileID: 6019592260272594983, guid: b2c77bad359fa8b43beb921690c436a7, type: 3}
-      propertyPath: m_Layer
-      value: 8
+      value: SnakeBody2 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6019592260272594983, guid: b2c77bad359fa8b43beb921690c436a7, type: 3}
       propertyPath: m_TagString
