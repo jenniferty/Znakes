@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         {
             MoveSpeed = 10;
             bodySpeed = 10;
-            Gap = 5;
+            Gap = 6;
         }
         else
         {
