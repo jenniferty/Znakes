@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //script updates score
-public class EatingFood : MonoBehaviour
+public class EatingFood2 : MonoBehaviour
 {
 
     private void OnTriggerEnter(Collider other)
