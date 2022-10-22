@@ -33,7 +33,4 @@ public class MapSelectingScript : MonoBehaviour
         location.setMapIndex(3);
         SceneChanger.LoadScene("Map3");
     }
-
-    
-
 }
