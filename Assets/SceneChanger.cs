@@ -23,5 +23,4 @@ public class SceneChanger : MonoBehaviour
         audioManager.playGameStopMenuTheme();
         SceneChanger.LoadScene(sceneHistory.Peek());
     }
-
 }
