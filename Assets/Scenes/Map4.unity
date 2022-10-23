@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingBox1
       objectReference: {fileID: 0}
+    - target: {fileID: 5129442236857904303, guid: a000b1a4e6463ad4b96d2aea49b6b27b, type: 3}
+      propertyPath: m_TagString
+      value: Sides
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a000b1a4e6463ad4b96d2aea49b6b27b, type: 3}
 --- !u!1 &705507993
@@ -461,6 +465,10 @@ PrefabInstance:
     - target: {fileID: 5129442236857904303, guid: a000b1a4e6463ad4b96d2aea49b6b27b, type: 3}
       propertyPath: m_Name
       value: MovingBox2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5129442236857904303, guid: a000b1a4e6463ad4b96d2aea49b6b27b, type: 3}
+      propertyPath: m_TagString
+      value: Sides
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a000b1a4e6463ad4b96d2aea49b6b27b, type: 3}
