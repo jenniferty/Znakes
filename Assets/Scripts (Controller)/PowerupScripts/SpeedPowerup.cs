@@ -47,7 +47,6 @@ public class SpeedPowerup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().Play("Powerup");
             setPlayerController(other);
             saveCurrentSpeed();
             MultiplySpeed(getSpeedMultiplier());
