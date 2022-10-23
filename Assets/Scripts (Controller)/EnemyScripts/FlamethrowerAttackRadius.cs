@@ -22,6 +22,7 @@ public class FlamethrowerAttackRadius : MonoBehaviour
             PlayersInRadius.Add(player);
             OnPlayerEnter?.Invoke(player);
             Invoke("StartDamage", 0);
+            Debug.Log("entered", gameObject);
         }
     }
 
@@ -51,6 +52,7 @@ public class FlamethrowerAttackRadius : MonoBehaviour
         {
             PlayersInRadius.Remove(player);
             OnPlayerExit?.Invoke(player);
+            Debug.Log("exit");
         }
     }
 
