@@ -27,6 +27,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        enemySpawnLocation = FindObjectOfType<ObjectSpawnLocation>();
         Invoke("StartSpawning", 1f);
     }
 
