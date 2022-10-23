@@ -17,4 +17,10 @@ public class crawlerScript : MonoBehaviour
     {
         transform.Translate(Camera.main.transform.up * crawlSpeed * Time.deltaTime);
     }
+
+
+    public void playMusic()
+    {
+        FindObjectOfType<AudioManager>().Play("MenuTheme");
+    }
 }
