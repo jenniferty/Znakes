@@ -5,11 +5,10 @@ using UnityEngine;
 public class SpeedPowerup : MonoBehaviour
 {
     public GameObject speedPowerup;
-    public PlayerSpeedController speedController;
     public PlayerController playerController;
-    [SerializeField] private float speedMultiplier = 1.5f;
-    [SerializeField] private float steerSpeedMultiplier = 1.3f;
-    [SerializeField] private float abilityTimer = 10f;
+    private float speedMultiplier = 1.25f;
+    private float steerSpeedMultiplier = 1.15f;
+    private float abilityTimer = 10f;
     private Stack<float> speedStack = new Stack<float>();
     private Stack<float> steerSpeedStack = new Stack<float>();
 
@@ -38,8 +37,11 @@ public class SpeedPowerup : MonoBehaviour
     {
         Debug.Log("Starting speed timer");
         yield return new WaitForSeconds(abilityTimer);
+        Debug.Log("timer returned");
         backToPreviousSpeed();
-        Debug.Log("Speed Powerup used up");
+        backToPreviousSpeed();
+        playerController.setSpeedPowerupIsActive(false);
+        Destroy(gameObject);
 
     }
 
@@ -48,20 +50,20 @@ public class SpeedPowerup : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             setPlayerController(other);
+            playerController.setSpeedPowerupIsActive(true);
             saveCurrentSpeed();
-            MultiplySpeed(getSpeedMultiplier());
+            MultiplySpeed();    //Somehow this is being called twice. Currently working around this bug by returning to prev x2
             StartCoroutine(ActiveTimer());
-            Destroy(gameObject);
+            gameObject.GetComponent<Renderer>().enabled = false;
         }
     }
 
-    public void MultiplySpeed(float speedMultiplier)
+    public void MultiplySpeed()
     {
-        {
-            playerController.setSpeed(speedStack.Peek() * getSpeedMultiplier());
-            playerController.setSteerSpeed(steerSpeedStack.Peek() * getSteerSpeedMultiplier());
-        }
-        Destroy(gameObject);    // Remove PickupspeedStack.Pop()
+     
+        playerController.setSpeed(speedStack.Peek() * getSpeedMultiplier());
+        playerController.setSteerSpeed(steerSpeedStack.Peek() * getSteerSpeedMultiplier());
+     
     }
 
     public void backToPreviousSpeed()

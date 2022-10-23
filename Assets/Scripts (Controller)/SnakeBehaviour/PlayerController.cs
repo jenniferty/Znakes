@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bodySpeed = 5;
     [SerializeField] private int gap = 15;
     private int bodyCount = 0;
+    private bool speedPowerupIsActive = false;
     Camera attachedCam;
 
     //for the snake Tail/Growth
@@ -35,25 +36,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         //sprint functions
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (!speedPowerupIsActive)
         {
-            /*MoveSpeed = 10;
-            bodySpeed = 10;
-            Gap = 5;*/
-            setMoveSpeed(10f);
-            setBodySpeed(10f);
-            setGap(5);
+            ShiftSprint();
         }
-        else
-        {
-            /*MoveSpeed = 5;
-            bodySpeed = 5;
-            Gap = 10;*/
-            setMoveSpeed(5f);
-            setBodySpeed(5f);
-            setGap(10);
-        }
-
         //new movementcode
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
@@ -96,6 +82,28 @@ public class PlayerController : MonoBehaviour
         bodyParts.Add(body);
         setBodyCount(getBodyCount() + 1);
     }
+
+    public void ShiftSprint()
+    {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            /*MoveSpeed = 10;
+            bodySpeed = 10;
+            Gap = 5;*/
+            setMoveSpeed(10f);
+            setBodySpeed(10f);
+            setGap(5);
+        }
+        else
+        {
+            /*MoveSpeed = 5;
+            bodySpeed = 5;
+            Gap = 10;*/
+            setMoveSpeed(5f);
+            setBodySpeed(5f);
+            setGap(10);
+        }
+    }
     public int getBodyCount()
     {
         return bodyCount;
@@ -136,6 +144,14 @@ public class PlayerController : MonoBehaviour
     public void setGap(int gap)
     {
         this.gap = gap;
+    }
+    public void setSpeedPowerupIsActive(bool isActive)
+    {
+        this.speedPowerupIsActive = isActive;
+    }
+    public bool getSpeedPowerupiIsActive()
+    {
+        return this.speedPowerupIsActive;
     }
 
     public void setSpeed(float speed)

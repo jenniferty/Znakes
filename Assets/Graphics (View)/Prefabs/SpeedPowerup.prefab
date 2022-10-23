@@ -127,8 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f605adea7bf6ff4aba5d38b477be5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedPowerup: {fileID: 8544956868963094252}
-  speedController: {fileID: 0}
+  speedPowerup: {fileID: 0}
   playerController: {fileID: 0}
-  speedMultiplier: 1.7
-  abilityTimer: 20
