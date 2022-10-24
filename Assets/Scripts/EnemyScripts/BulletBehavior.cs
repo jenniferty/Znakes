@@ -10,7 +10,7 @@ public class BulletBehavior : MonoBehaviour
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         Debug.Log(playerController.getBodyCount());
-        setDamageMultiplier(1);
+        setDamageMultiplier(3);
         Destroy(gameObject, 4f);
     }
 
@@ -24,6 +24,12 @@ public class BulletBehavior : MonoBehaviour
         {
             EnemyHealthController enemyHealth = collision.gameObject.GetComponent<EnemyHealthController>();
             enemyHealth.TakeDamage(playerController.getBodyCount() * getDamageMultiplier());
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.CompareTag("Cannon"))
+        {
+            CannonHealth cannonHealth = collision.gameObject.GetComponent<CannonHealth>();
+            cannonHealth.TakeHit();
             Destroy(gameObject);
         }
         if(collision.gameObject.CompareTag("Bomb"))
