@@ -108,3 +108,10 @@ MonoBehaviour:
     loop: 0
     mixer: {fileID: -3035422944163485825, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
     source: {fileID: 0}
+  - name: TakeDamage
+    clip: {fileID: 8300000, guid: 7a3fb591a6a02424eab04a4a7762a3b1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixer: {fileID: -3035422944163485825, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    source: {fileID: 0}
