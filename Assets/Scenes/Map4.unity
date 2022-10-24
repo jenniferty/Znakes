@@ -795,6 +795,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground_01
       objectReference: {fileID: 0}
+    - target: {fileID: 471104103810713425, guid: 76ebd5fb1553941498efb8820593f9b1, type: 3}
+      propertyPath: m_TagString
+      value: wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2270574404009735653, guid: 76ebd5fb1553941498efb8820593f9b1, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5878451002905914860, guid: 76ebd5fb1553941498efb8820593f9b1, type: 3}
       propertyPath: m_RootOrder
       value: 8
