@@ -12,13 +12,9 @@ public class PlayerController : MonoBehaviour
     private int bodyCount = 0;
     private bool speedPowerupIsActive = false;
     private bool isSprinting = false;
-    private float stamina = 3f;
-    private float staminaMax = 3f;
-    private float staminaDecreasePerFrame = 0.2f;
-    private float staminaIncreasePerFrame = 0.2f;
-    private float staminaRegenTimer = 0f;
-    private float staminaTimeToRegen = 3f;
+    private bool hasStamina = true;
     Camera attachedCam;
+    StaminaBar staminaBar;
 
     //for the snake Tail/Growth
     public GameObject snakeBody;
@@ -29,6 +25,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
+        staminaBar = GameObject.Find("StaminaBar").GetComponent<StaminaBar>();
         GrowSnake();
         GrowSnake();
         GrowSnake();
@@ -45,7 +42,7 @@ public class PlayerController : MonoBehaviour
             ShiftSprint();
         }
         
-        UpdateStamina();
+        staminaBar.UpdateStamina();
 
         //new movementcode
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
@@ -81,7 +78,7 @@ public class PlayerController : MonoBehaviour
     public void ShiftSprint()
     {
         isSprinting = Input.GetKey(KeyCode.LeftShift);
-        if (isSprinting)
+        if (isSprinting && hasStamina)
         {
             setMoveSpeed(10f);
             setBodySpeed(10f);
@@ -92,22 +89,6 @@ public class PlayerController : MonoBehaviour
             setMoveSpeed(5f);
             setBodySpeed(5f);
             setGap(10);
-        }
-    }
-
-    public void UpdateStamina()
-    {
-        if (isSprinting)
-        {
-            stamina = Mathf.Clamp(stamina - (staminaDecreasePerFrame * Time.deltaTime), 0.0f, staminaMax);
-            staminaRegenTimer = 0.0f;
-        }
-        else if (stamina < staminaMax)
-        {
-            if (staminaRegenTimer >= staminaTimeToRegen)
-                stamina = Mathf.Clamp(stamina + (staminaIncreasePerFrame * Time.deltaTime), 0.0f, staminaMax);
-            else
-                staminaRegenTimer += Time.deltaTime;
         }
     }
 
@@ -136,6 +117,10 @@ public class PlayerController : MonoBehaviour
     {
         return this.gap;
     }
+    public bool getIsSprinting()
+    {
+        return this.isSprinting;
+    }
     public void setMoveSpeed(float moveSpeed)
     {
         this.moveSpeed = moveSpeed;
@@ -156,11 +141,18 @@ public class PlayerController : MonoBehaviour
     {
         this.speedPowerupIsActive = isActive;
     }
+    public void SetHasStamina(bool hasStamina)
+    {
+        this.hasStamina = hasStamina;
+    }
     public bool getSpeedPowerupiIsActive()
     {
         return this.speedPowerupIsActive;
     }
 
+    /*
+     * This is used by the SpeedPowerup script
+     */
     public void setSpeed(float speed)
     {
         setMoveSpeed(speed);
