@@ -595,6 +595,7 @@ GameObject:
   - component: {fileID: 4675685556510821503}
   - component: {fileID: 2096111251451851384}
   - component: {fileID: 3176499765621591175}
+  - component: {fileID: -8084805474445109271}
   m_Layer: 0
   m_Name: SpikedCannonball
   m_TagString: Untagged
@@ -706,6 +707,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-8084805474445109271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358111330432034458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d352e68c79f162459aae17e24f2e64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonBall: {fileID: 3358111330432034458}
+  treePrefab: {fileID: 4247524512073782484, guid: 1a4b6113bae5daf4582f9560809e4b68, type: 3}
 --- !u!1 &5620983532436047923
 GameObject:
   m_ObjectHideFlags: 0
