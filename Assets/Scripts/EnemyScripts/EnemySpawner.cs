@@ -116,18 +116,6 @@ public class EnemySpawner : MonoBehaviour
         Invoke("StartSpawning", 0f);
     }
 
-    private void Update()
-    {
-
-        if (Input.GetKeyDown("t"))
-        {
-            RandomiseLocation();
-            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-            Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
-            Debug.Log("speedPowerup spawned");
-        }
-    }
-
     public bool CollisionCheck(Vector3 pos)
     {
         Collider[] colliders = Physics.OverlapSphere(pos, getRadiusCheck());
