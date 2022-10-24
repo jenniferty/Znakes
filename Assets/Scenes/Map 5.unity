@@ -333,7 +333,8 @@ MonoBehaviour:
   enemySpawnLocation: {fileID: 0}
   bomb_Pickup: {fileID: 7593290656839984577, guid: 7e70afa80db46bb42b740f23448fcdd9, type: 3}
   health_Pickup: {fileID: 4346595497363003704, guid: da0488277fc73a04c883b9fdb62d516d, type: 3}
-  enemy_Pickup: {fileID: 6257332917776063860, guid: 0239cca7c794b874382484d7bd2b3191, type: 3}
+  sus_Flame: {fileID: 6257332917776063860, guid: 0239cca7c794b874382484d7bd2b3191, type: 3}
+  sus_Cannon: {fileID: 4004781127094337912, guid: 44e4ed03c7d0b4b1b8abd1cc7115ceab, type: 3}
   speedPowerup_Pickup: {fileID: 8544956868963094252, guid: 69403df02b5eb8145a5848d77e21cbe0, type: 3}
 --- !u!4 &1638022872
 Transform:
