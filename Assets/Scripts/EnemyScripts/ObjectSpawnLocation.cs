@@ -55,7 +55,7 @@ public class ObjectSpawnLocation : MonoBehaviour
             return coordinates = new float[,]{{0f, 0f, 0f, 0f, 0f},{-15f, 25f, -15f, 25f, 3.8f}};
         }
     }
-    public float getMapIndex()
+    public int getMapIndex()
     {
         return this.mapIndex;
     }

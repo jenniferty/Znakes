@@ -9,7 +9,7 @@ public class LaunchCannonBall : MonoBehaviour
     public float launchVelocity = 700f;
     void Start()
     {
-        InvokeRepeating("Launch", 0f, 3f);
+        InvokeRepeating("Launch", 1f, 3f);
     }
     void Update()
     {
