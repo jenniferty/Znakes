@@ -33,6 +33,7 @@ public class PlayerHealthController : MonoBehaviour
     {
         setHealth(getHealth() - damage);
         healthBar.SetHealth(getHealth());
+        Debug.Log(getHealth());
     }
     private void CheckDeath()
     {

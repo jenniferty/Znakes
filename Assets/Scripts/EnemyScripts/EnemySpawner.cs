@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour
 
     public GameObject bomb_Pickup;
     public GameObject health_Pickup;
-    public GameObject enemy_Pickup;
+    public GameObject sus_Flame;
+    public GameObject sus_Cannon;
     public GameObject speedPowerup_Pickup;
     public float[,] coordinates;
 
@@ -70,14 +71,28 @@ public class EnemySpawner : MonoBehaviour
             bool check = CollisionCheck(pos);
             if (check)
             {
-                if (Random.Range(0, 10) >= 3)
+                int chance = Random.Range(1, 4);
+                switch(chance){
+                    case 1:
+                    Instantiate(bomb_Pickup, pos, Quaternion.identity);
+                    break;
+                    case 2:
+                    Instantiate(sus_Flame, pos, Quaternion.identity);
+                    break;
+                    case 3:
+                    Instantiate(sus_Cannon, pos, Quaternion.identity);
+                    break;
+                    default:
+                    break;
+                }
+                /*if (chance <= 3)
                 {
                     Instantiate(bomb_Pickup, pos, Quaternion.identity);
                 }
-                else
+                else if(chance > 3 && chance <= 6)
                 {
-                    Instantiate(enemy_Pickup, pos, Quaternion.identity);
-                }
+                    Instantiate(sus_Flame, pos, Quaternion.identity);
+                }*/
 
             }
         }
