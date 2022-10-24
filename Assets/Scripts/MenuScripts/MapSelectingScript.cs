@@ -13,6 +13,13 @@ public class MapSelectingScript : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         location = FindObjectOfType<ObjectSpawnLocation>();
     }
+
+    public void Story ()
+    {
+        audioManager.playGameStopMenuTheme();
+        SceneChanger.LoadScene("Story");
+    }
+
     public void Map1 ()
     {
         audioManager.playGameStopMenuTheme();
@@ -32,5 +39,17 @@ public class MapSelectingScript : MonoBehaviour
         audioManager.playGameStopMenuTheme();
         location.setMapIndex(3);
         SceneChanger.LoadScene("Map3");
+    }
+    public void Map4 ()
+    {
+        audioManager.playGameStopMenuTheme();
+        location.setMapIndex(4);
+        SceneChanger.LoadScene("Map4");
+    }
+    public void Map5 ()
+    {
+        audioManager.playGameStopMenuTheme();
+        location.setMapIndex(5);
+        SceneChanger.LoadScene("Map5");
     }
 }

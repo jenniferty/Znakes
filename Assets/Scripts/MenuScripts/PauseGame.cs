@@ -8,6 +8,8 @@ public class PauseGame : MonoBehaviour
 
     public PlayerController playerController;
 
+    [SerializeField] GameObject PauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +32,17 @@ public class PauseGame : MonoBehaviour
         }
     }
 
-    public static void Pause()
+    public void Pause()
     {
         Time.timeScale = 0;
         isPaused = true;
+        PauseMenu.SetActive(true);
     }
 
-    public static void Resume()
+    public void Resume()
     {
         Time.timeScale = 1;
         isPaused = false;
-
+        PauseMenu.SetActive(false);
     }
 }
