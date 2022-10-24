@@ -31,8 +31,10 @@ public class PlayerHealthController : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
+        FindObjectOfType<AudioManager>().Play("TakeDamage");
         setHealth(getHealth() - damage);
         healthBar.SetHealth(getHealth());
+        Debug.Log(getHealth());
     }
     private void CheckDeath()
     {

@@ -11,20 +11,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int gap = 15;
     private int bodyCount = 0;
     private bool speedPowerupIsActive = false;
+    private bool isSprinting = false;
+    private bool hasStamina = true;
     Camera attachedCam;
+    StaminaBar staminaBar;
 
     //for the snake Tail/Growth
     public GameObject snakeBody;
     private List<GameObject> bodyParts = new List<GameObject>();
     private List<Vector3> positionHist = new List<Vector3>();
 
-    public bool isSprinting = false;
-    // public float sprintMultiplier;
-
     // Start is called before the first frame update
     void Start()
     {
         attachedCam = GameObject.Find("Third Person Camera").GetComponent<Camera>();
+        staminaBar = GameObject.Find("StaminaBar").GetComponent<StaminaBar>();
         GrowSnake();
         GrowSnake();
         GrowSnake();
@@ -40,23 +41,14 @@ public class PlayerController : MonoBehaviour
         {
             ShiftSprint();
         }
+        
+        staminaBar.UpdateStamina();
+
         //new movementcode
         transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
         float steerDirection = Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up * steerDirection * steerSpeed * Time.deltaTime);
-
-        //sprint functions, changeing speed
-        // if (isSprinting == true) 
-        // {
-        //     MoveSpeed *= sprintMultiplier;
-        //     // bodySpeed *= sprintMultiplier;
-        // }
-        // else
-        // {
-        //     MoveSpeed = 5;
-        //     // bodySpeed = 5;
-        // }
 
         if (!PauseGame.isPaused)
         {
@@ -85,25 +77,21 @@ public class PlayerController : MonoBehaviour
 
     public void ShiftSprint()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        isSprinting = Input.GetKey(KeyCode.LeftShift);
+        if (isSprinting && hasStamina)
         {
-            /*MoveSpeed = 10;
-            bodySpeed = 10;
-            Gap = 5;*/
             setMoveSpeed(10f);
             setBodySpeed(10f);
             setGap(5);
         }
         else
         {
-            /*MoveSpeed = 5;
-            bodySpeed = 5;
-            Gap = 10;*/
             setMoveSpeed(5f);
             setBodySpeed(5f);
             setGap(10);
         }
     }
+
     public int getBodyCount()
     {
         return bodyCount;
@@ -129,6 +117,10 @@ public class PlayerController : MonoBehaviour
     {
         return this.gap;
     }
+    public bool getIsSprinting()
+    {
+        return this.isSprinting;
+    }
     public void setMoveSpeed(float moveSpeed)
     {
         this.moveSpeed = moveSpeed;
@@ -149,11 +141,18 @@ public class PlayerController : MonoBehaviour
     {
         this.speedPowerupIsActive = isActive;
     }
+    public void SetHasStamina(bool hasStamina)
+    {
+        this.hasStamina = hasStamina;
+    }
     public bool getSpeedPowerupiIsActive()
     {
         return this.speedPowerupIsActive;
     }
 
+    /*
+     * This is used by the SpeedPowerup script
+     */
     public void setSpeed(float speed)
     {
         setMoveSpeed(speed);
