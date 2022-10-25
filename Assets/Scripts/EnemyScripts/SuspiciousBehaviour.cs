@@ -24,7 +24,6 @@ public class SuspiciousBehaviour : MonoBehaviour
         {
             enemy.transform.Find("InedibleIcon").gameObject.SetActive(false);
             enemy.transform.Find("EdibleIcon").gameObject.SetActive(true);
-            enemy.transform.Find("FlameThrower").gameObject.SetActive(false);
         }
         if (enemyHealthController.getHealth() <= 0)
         {
