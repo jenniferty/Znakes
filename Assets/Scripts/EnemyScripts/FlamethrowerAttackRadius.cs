@@ -15,15 +15,6 @@ public class FlamethrowerAttackRadius : MonoBehaviour
     private float tickTime = 0.3f; //changes frequency of damage
     private List<PlayerHealthController> PlayersInRadius = new List<PlayerHealthController>();
 
-    private void OnTriggerEnter(Collider other)
-    {       
-        if (other.TryGetComponent<PlayerHealthController>(out PlayerHealthController player))
-        {
-            PlayersInRadius.Add(player);
-            OnPlayerEnter?.Invoke(player);
-            Invoke("StartDamage", 0);
-        }
-    }
 
     void Start()
     {
@@ -35,16 +26,32 @@ public class FlamethrowerAttackRadius : MonoBehaviour
     }
     private IEnumerator dps()
     {
+        //waits a set time before invoking damage
         yield return new WaitForSeconds(getTickTime());
-        if((PlayersInRadius?.Count ?? 0) != 0){
-            if(PlayersInRadius.First() != null){
-                PlayerHealthController player = PlayersInRadius.First();        
+        //checks if exists and not null or zero
+        if ((PlayersInRadius?.Count ?? 0) != 0)
+        {
+            //access script of first component in list only
+            if (PlayersInRadius.First() != null)
+            {
+                PlayerHealthController player = PlayersInRadius.First();
                 player.GetComponent<PlayerHealthController>().TakeDamage(1);
             }
-        Invoke("StartDamage", 0);
+            //only if playerhealthcontroller list has items
+            Invoke("StartDamage", 0);
         }
     }
-
+    //adds component to list
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent<PlayerHealthController>(out PlayerHealthController player))
+        {
+            PlayersInRadius.Add(player);
+            OnPlayerEnter?.Invoke(player);
+            Invoke("StartDamage", 0);
+        }
+    }
+    //removes from list when exits
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent<PlayerHealthController>(out PlayerHealthController player))
@@ -53,7 +60,7 @@ public class FlamethrowerAttackRadius : MonoBehaviour
             OnPlayerExit?.Invoke(player);
         }
     }
-
+    //when enemy object is destroyed clear list
     private void OnDisable()
     {
         foreach (PlayerHealthController player in PlayersInRadius)
