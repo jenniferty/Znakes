@@ -883,6 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112477920}
   - component: {fileID: 112477922}
+  - component: {fileID: 112477923}
   m_Layer: 6
   m_Name: Target Camera
   m_TagString: Untagged
@@ -948,6 +949,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &112477923
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112477919}
+  m_Enabled: 1
 --- !u!1 &137117369
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,7 +2868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
   healthBar: {fileID: 1106691031}
-  cam: {fileID: 1916274751}
 --- !u!114 &602047114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7717,7 +7725,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1916274750}
   - component: {fileID: 1916274749}
-  - component: {fileID: 1916274748}
   - component: {fileID: 1916274751}
   m_Layer: 0
   m_Name: Third Person Camera
@@ -7726,14 +7733,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1916274748
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916274747}
-  m_Enabled: 1
 --- !u!20 &1916274749
 Camera:
   m_ObjectHideFlags: 0

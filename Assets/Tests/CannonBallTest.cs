@@ -8,7 +8,7 @@ public class NewTestScript
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void CannonBallIsCreated()
+    /*public void CannonBallIsCreated()
     {
         GameObject[] cannonBall = Launch();
         //assert object exists
@@ -21,7 +21,7 @@ public class NewTestScript
         GameObject[] tree = GrowTree();
         Assert.IsNotNull(tree);
 
-    }
+    }*/
 
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
