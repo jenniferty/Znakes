@@ -15,7 +15,11 @@ public class IgnoreDamage : MonoBehaviour
     {
         playerHealthController =
             GameObject
+<<<<<<< HEAD
                 .Find("Player")
+=======
+                .Find("PlayerHealthController")
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70
                 .GetComponent<PlayerHealthController>();
     }
 

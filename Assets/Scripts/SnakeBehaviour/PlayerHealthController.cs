@@ -21,6 +21,10 @@ public class PlayerHealthController : MonoBehaviour
     public shaker cam;
 
     public Boolean ignoreDamage;
+<<<<<<< HEAD:Assets/Scripts/SnakeBehaviour/PlayerHealthController.cs
+=======
+
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Scripts (Controller)/SnakeBehaviour/PlayerHealthController.cs
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +35,11 @@ public class PlayerHealthController : MonoBehaviour
         setMaxHealth();
         setInitialBodyHealth();
         healthBar.SetHealth(getHealth());
+<<<<<<< HEAD:Assets/Scripts/SnakeBehaviour/PlayerHealthController.cs
         cam = GameObject.Find("Third Person Camera").GetComponent<shaker>();
+=======
+        cam = GameObject.Find("THird Person Camera").GetComponent<shaker>();
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Scripts (Controller)/SnakeBehaviour/PlayerHealthController.cs
     }
 
     // Update is called once per frame
@@ -48,6 +56,8 @@ public class PlayerHealthController : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("TakeDamage");
         setHealth(getHealth() - damage);
         healthBar.SetHealth(getHealth());
+        Debug.Log(getHealth());
+        cam.shouldShake = true;
     }
 
     private void CheckDeath()
@@ -59,19 +69,32 @@ public class PlayerHealthController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
     }
+<<<<<<< HEAD:Assets/Scripts/SnakeBehaviour/PlayerHealthController.cs
     //sets health to be the same as head
-    public void setInitialBodyHealth()
-    {
-        this.health = playerHealth.getSnakeHealth();
-    }
+=======
+
     public int getHealth()
     {
         return health;
     }
+
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Scripts (Controller)/SnakeBehaviour/PlayerHealthController.cs
+    public void setInitialBodyHealth()
+    {
+        this.health = playerHealth.getSnakeHealth();
+    }
+<<<<<<< HEAD:Assets/Scripts/SnakeBehaviour/PlayerHealthController.cs
+    public int getHealth()
+    {
+        return health;
+    }
+=======
+
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Scripts (Controller)/SnakeBehaviour/PlayerHealthController.cs
     public void setHealth(int health)
     {
         this.health = health;
-        playerHealth.setSnakeHealth(health);
+        playerHealth.setSnakeHealth (health);
     }
 
     public int getMaxHealth()

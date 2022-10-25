@@ -1824,6 +1824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalRotation.w
+<<<<<<< HEAD:Assets/Graphics/Prefabs/SuspiciousEnemy.prefab
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
@@ -1837,6 +1838,21 @@ PrefabInstance:
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
+=======
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Graphics (View)/Prefabs/SuspiciousEnemy.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1844,7 +1860,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+<<<<<<< HEAD:Assets/Graphics/Prefabs/SuspiciousEnemy.prefab
       value: 180
+=======
+      value: 0
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Graphics (View)/Prefabs/SuspiciousEnemy.prefab
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z

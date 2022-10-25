@@ -1,6 +1,16 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<< HEAD:Assets/Graphics/MapAssets/Map4/Assets/Prefab/MovingBox2.prefab.meta
 guid: a5750f6841d908c47844c60edf719c90
 PrefabImporter:
+=======
+guid: 4e88aabd270d01847bc96b9daafa1f8a
+DefaultImporter:
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Scenes/Story.unity.meta
+=======
+guid: a5750f6841d908c47844c60edf719c90
+PrefabImporter:
+>>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70
   externalObjects: {}
   userData: 
   assetBundleName: 
