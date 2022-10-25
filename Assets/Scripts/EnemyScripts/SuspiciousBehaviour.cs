@@ -13,7 +13,6 @@ public class SuspiciousBehaviour : MonoBehaviour
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        //target = GameObject.Find("Target Camera").GetComponent<Camera>();
         if (enemy == enabled)
         {
             Invoke("TimeOut", 15);
@@ -22,12 +21,10 @@ public class SuspiciousBehaviour : MonoBehaviour
 
     void Update()
     {
-        //transform.LookAt(transform.position + target.transform.rotation * Vector3.forward, target.transform.rotation * Vector3.up);
         if(enemyHealthController.getEdible())
         {
             enemy.transform.Find("InedibleIcon").gameObject.SetActive(false);
             enemy.transform.Find("EdibleIcon").gameObject.SetActive(true);
-            enemy.transform.Find("FlameThrower").gameObject.SetActive(false);
         }
         if(enemyHealthController.getHealth() <= 0)
         {

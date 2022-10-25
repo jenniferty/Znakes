@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8522,14 +8522,32 @@ PrefabInstance:
     - target: {fileID: 6394306862437941016, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1106691031}
+      objectReference: {fileID: 0}
     - target: {fileID: 6394306862437941017, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
       propertyPath: foodSpawner
       value: 
-      objectReference: {fileID: 352061797}
+      objectReference: {fileID: 0}
     - target: {fileID: 6394306862437941230, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
+--- !u!1 &6394306863027338642 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6394306862437941230, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
+  m_PrefabInstance: {fileID: 6394306863027338641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6394306863027338654
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6394306863027338642}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

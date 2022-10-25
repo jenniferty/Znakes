@@ -32,7 +32,7 @@ public class PlayerHealthController : MonoBehaviour
         setMaxHealth();
         setInitialBodyHealth();
         healthBar.SetHealth(getHealth());
-        cam = GameObject.Find("THird Person Camera").GetComponent<shaker>();
+        cam = GameObject.Find("Third Person Camera").GetComponent<shaker>();
     }
 
     // Update is called once per frame
