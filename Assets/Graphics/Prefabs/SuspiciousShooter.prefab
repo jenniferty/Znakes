@@ -2463,10 +2463,7 @@ MonoBehaviour:
   enemy: {fileID: 4004781127094337912}
   enemyHealthController: {fileID: 0}
   playerController: {fileID: 0}
-<<<<<<< HEAD
-=======
   target: {fileID: 0}
->>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70
 --- !u!114 &7339606145977666258
 MonoBehaviour:
   m_ObjectHideFlags: 0
