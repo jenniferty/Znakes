@@ -1,32 +1,20 @@
-using System.Data.SqlTypes;
-using System.Runtime.Serialization.Formatters;
-using System.Runtime.CompilerServices;
-using System.Globalization;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealthController : MonoBehaviour
+public class PlayerHealthController : MonoBehaviour 
 {
     // Settings
     private int health;
-
     private int maxHealth;
-
     public PlayerHealth playerHealth;
-
     public HealthBar healthBar;
-
-    public Boolean ignoreDamage;
-
 
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth =
-            GameObject.Find("PlayerHealth").GetComponent<PlayerHealth>();
+        playerHealth = GameObject.Find("PlayerHealth").GetComponent<PlayerHealth>();
         healthBar = GameObject.Find("HealthBar").GetComponent<HealthBar>();
         setMaxHealth();
         setInitialBodyHealth();
@@ -41,13 +29,11 @@ public class PlayerHealthController : MonoBehaviour
         healthBar.SetHealth(getHealth());
         CheckDeath();
     }
-
     public void TakeDamage(int damage)
     {
         setHealth(getHealth() - damage);
         healthBar.SetHealth(getHealth());
     }
-
     private void CheckDeath()
     {
         if (getHealth() <= 0)
@@ -62,23 +48,19 @@ public class PlayerHealthController : MonoBehaviour
     {
         return health;
     }
-
     public void setInitialBodyHealth()
     {
         this.health = playerHealth.getSnakeHealth();
     }
-
     public void setHealth(int health)
     {
         this.health = health;
-        playerHealth.setSnakeHealth (health);
+        playerHealth.setSnakeHealth(health);
     }
-
     public int getMaxHealth()
     {
         return maxHealth;
     }
-
     public void setMaxHealth()
     {
         this.maxHealth = playerHealth.getSnakeMaxHealth();
