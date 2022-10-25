@@ -16,20 +16,20 @@ public class Rotate : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
 
     public void RotateUp()
     {
-        transform.eulerAngles = new Vector3(getMaxUp(),transform.eulerAngles.y,transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(getMaxUp(), transform.eulerAngles.y, transform.eulerAngles.z);
     }
     public void RotateMid()
     {
-        transform.eulerAngles = new Vector3(getMid(),transform.eulerAngles.y,transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(getMid(), transform.eulerAngles.y, transform.eulerAngles.z);
     }
     public void RotateDown()
     {
-        transform.eulerAngles = new Vector3(getMaxDown(),transform.eulerAngles.y,transform.eulerAngles.z);
+        transform.eulerAngles = new Vector3(getMaxDown(), transform.eulerAngles.y, transform.eulerAngles.z);
     }
     public float getMaxUp()
     {

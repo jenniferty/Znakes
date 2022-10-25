@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour
 {
-   public static EnemySpawner instance;
-   public ObjectSpawnLocation enemySpawnLocation;
+    public static EnemySpawner instance;
+    public ObjectSpawnLocation enemySpawnLocation;
 
     public GameObject bomb_Pickup;
     public GameObject health_Pickup;
@@ -16,7 +16,6 @@ public class EnemySpawner : MonoBehaviour
     public float[,] coordinates;
 
     //bounds for area for bomb to spawn
-    //values for testing only
     private float min_X, max_X, min_Z, max_Z, y_Pos;
     //for collision check
     private float radiusCheck = 2f;
@@ -49,10 +48,12 @@ public class EnemySpawner : MonoBehaviour
     {
         CancelInvoke("StartSpawning");
     }
-
+    //gets a random area, used when maps have more than one area
     public void RandomiseLocation()
     {
+        //gets a 2d array
         coordinates = enemySpawnLocation.getCoordinates();
+        //ignores first item of array(contains zero)
         int area = Random.Range(1, coordinates.GetLength(0));
         setMin_X(coordinates[area, 0]);
         setMax_X(coordinates[area, 1]);
@@ -60,47 +61,36 @@ public class EnemySpawner : MonoBehaviour
         setMax_Z(coordinates[area, 3]);
         setY_Pos(coordinates[area, 4]);
     }
-
     IEnumerator SpawnPickUps()
     {
         yield return new WaitForSeconds(Random.Range(1f, 3f));
+        //new random area
         RandomiseLocation();
-        if (Random.Range(0, 10) >= 2)
+        //get random vector within area
+        Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
+        bool check = CollisionCheck(pos);
+        if (check)
         {
-            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-            bool check = CollisionCheck(pos);
-            if (check)
+            if (Random.Range(0, 10) >= 2)
             {
                 int chance = Random.Range(1, 4);
-                switch(chance){
+                //equal chance of spawning
+                switch (chance)
+                {
                     case 1:
-                    Instantiate(bomb_Pickup, pos, Quaternion.identity);
-                    break;
+                        Instantiate(bomb_Pickup, pos, Quaternion.identity);
+                        break;
                     case 2:
-                    Instantiate(sus_Flame, pos, Quaternion.identity);
-                    break;
+                        Instantiate(sus_Flame, pos, Quaternion.identity);
+                        break;
                     case 3:
-                    Instantiate(sus_Cannon, pos, Quaternion.identity);
-                    break;
+                        Instantiate(sus_Cannon, pos, Quaternion.identity);
+                        break;
                     default:
-                    break;
+                        break;
                 }
-                /*if (chance <= 3)
-                {
-                    Instantiate(bomb_Pickup, pos, Quaternion.identity);
-                }
-                else if(chance > 3 && chance <= 6)
-                {
-                    Instantiate(sus_Flame, pos, Quaternion.identity);
-                }*/
-
             }
-        }
-        else
-        {
-            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-            bool check = CollisionCheck(pos);
-            if (check)
+            else
             {
                 if (Random.Range(0, 10) >= 4)
                 {
@@ -112,29 +102,18 @@ public class EnemySpawner : MonoBehaviour
                     Debug.Log("speedPowerup spawned");
                 }
             }
+
         }
         Invoke("StartSpawning", 0f);
     }
-
-    private void Update()
-    {
-
-        if (Input.GetKeyDown("t"))
-        {
-            RandomiseLocation();
-            Vector3 pos = new Vector3(Random.Range(getMin_X(), getMax_X()), getY_Pos(), Random.Range(getMin_Z(), getMax_Z()));
-            Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
-            Debug.Log("speedPowerup spawned");
-        }
-    }
-
+    //checks for colliders within radius of object
     public bool CollisionCheck(Vector3 pos)
     {
         Collider[] colliders = Physics.OverlapSphere(pos, getRadiusCheck());
         foreach (Collider col in colliders)
         {
             //change/add new tags as needed
-            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup")
+            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup" || col.tag == "Cannon")
             {
                 return false;
             }

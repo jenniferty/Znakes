@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DestroyTree : MonoBehaviour
 {
-    void Start(){
+    void Start()
+    {
         Destroy(gameObject, 5f);
     }
 }

@@ -18,6 +18,7 @@ public class PlayerHealthController : MonoBehaviour
     public PlayerHealth playerHealth;
 
     public HealthBar healthBar;
+    public shaker cam;
 
     public Boolean ignoreDamage;
 
@@ -31,6 +32,7 @@ public class PlayerHealthController : MonoBehaviour
         setMaxHealth();
         setInitialBodyHealth();
         healthBar.SetHealth(getHealth());
+        cam = GameObject.Find("THird Person Camera").GetComponent<shaker>();
     }
 
     // Update is called once per frame
@@ -44,18 +46,11 @@ public class PlayerHealthController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (ignoreDamage == false)
-        {
-            FindObjectOfType<AudioManager>().Play("TakeDamage");
-            setHealth(getHealth() - damage);
-            healthBar.SetHealth(getHealth());
-            Debug.Log(getHealth());
-        }
-
-        else
-        {
-            
-        }
+        FindObjectOfType<AudioManager>().Play("TakeDamage");
+        setHealth(getHealth() - damage);
+        healthBar.SetHealth(getHealth());
+        Debug.Log(getHealth());
+        cam.shouldShake = true;
     }
 
     private void CheckDeath()
