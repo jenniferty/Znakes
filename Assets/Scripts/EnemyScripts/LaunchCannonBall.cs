@@ -1,4 +1,5 @@
 //adapted from https://learn.unity.com/tutorial/using-c-to-launch-projectiles#5fd7ab3bedbc2a7fb11f4e41
+//modified cannon prefab from same link
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class LaunchCannonBall : MonoBehaviour
     }
     void Update()
     {
-        
+
     }
     public void Launch()
     {
