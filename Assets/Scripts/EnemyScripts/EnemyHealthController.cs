@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class EnemyHealthController : MonoBehaviour
+public class EnemyHealthController : MonoBehaviour 
 {
     // Settings
     private int health;
@@ -11,33 +11,37 @@ public class EnemyHealthController : MonoBehaviour
     private int edibleHealth;
     private int level;
     private bool isEdible = false;
-    public PlayerController playerController;//health is dependent on bodycount
+    public PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         setLevel(playerController.getBodyCount());
-        CheckEdible();
+        Debug.Log(getLevel());
         setMaxHealth();
         setHealth(getMaxHealth());
+        Debug.Log(getMaxHealth());
+        Debug.Log(getHealth());
         setEdibleHealth(getMaxHealth());
+        Debug.Log(getEdibleHealth());
+        Debug.Log(getEdible());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
     public void TakeDamage(int damage)
     {
         setHealth(getHealth() - damage);
         CheckEdible();
+        Debug.Log(getHealth());
     }
-    //sets to true when the size of the snake is greater than the level or if enemy health reaches half
     public void CheckEdible()
     {
-        if (getLevel() < playerController.getBodyCount() || getHealth() <= getEdibleHealth())
+        if (getHealth() <= getEdibleHealth())
         {
             setEdible();
         }
@@ -57,6 +61,7 @@ public class EnemyHealthController : MonoBehaviour
     }
     public void setMaxHealth()
     {
+
         this.maxHealth = getLevel() * 10;
     }
     public bool getEdible()
@@ -73,23 +78,20 @@ public class EnemyHealthController : MonoBehaviour
     }
     public void setEdibleHealth(int maxhealth)
     {
-        this.edibleHealth = (int)Mathf.Ceil(maxhealth / 2);
+        this.edibleHealth = (int)Mathf.Ceil(maxhealth/2);
     }
     public int getLevel()
     {
         return level;
     }
-    //creates a range 
     public void setLevel(int playersize)
     {
         int minLevel;
         int maxLevel = playersize + 10;
-        if ((playersize - 5) <= 0)
+        if((playersize - 5)<= 0)
         {
             minLevel = 1;
-        }
-        else
-        {
+        }else{
             minLevel = playersize - 5;
         }
         this.level = Random.Range(minLevel, maxLevel);

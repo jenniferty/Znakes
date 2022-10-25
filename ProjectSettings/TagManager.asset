@@ -13,8 +13,6 @@ TagManager:
   - variable
   - wall
   - BodySides
-  - SpeedPowerup
-  - Cannon
   layers:
   - Default
   - TransparentFX

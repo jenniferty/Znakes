@@ -6,8 +6,8 @@ public class SpeedPowerup : MonoBehaviour
 {
     public GameObject speedPowerup;
     public PlayerController playerController;
-    private float speedMultiplier = 1.24f;
-    private float steerSpeedMultiplier = 1.13f;
+    private float speedMultiplier = 1.25f;
+    private float steerSpeedMultiplier = 1.15f;
     private float abilityTimer = 10f;
     private Stack<float> speedStack = new Stack<float>();
     private Stack<float> steerSpeedStack = new Stack<float>();
@@ -49,14 +49,12 @@ public class SpeedPowerup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            FindObjectOfType<AudioManager>().Play("Powerup");
             setPlayerController(other);
             playerController.setSpeedPowerupIsActive(true);
             saveCurrentSpeed();
             MultiplySpeed();    //Somehow this is being called twice. Currently working around this bug by returning to prev x2
             StartCoroutine(ActiveTimer());
             gameObject.GetComponent<Renderer>().enabled = false;
-            gameObject.transform.GetChild(0).GetComponent<Renderer>().enabled = false;
         }
     }
 

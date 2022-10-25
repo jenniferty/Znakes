@@ -7,11 +7,9 @@ public class SceneChanger : MonoBehaviour
 {
     public static Stack<string> sceneHistory = new Stack<string>();
     private AudioManager audioManager;
-    public PlayerHealth playerHealth;
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
-        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     public static void LoadScene(string newScene)
@@ -23,7 +21,6 @@ public class SceneChanger : MonoBehaviour
     public void PreviousScene()
     {
         audioManager.playGameStopMenuTheme();
-        playerHealth.setSnakeHealth(playerHealth.getSnakeMaxHealth());
         SceneChanger.LoadScene(sceneHistory.Peek());
     }
 }

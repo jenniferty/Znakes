@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DestroyExplosion : MonoBehaviour
 {
-    void Start()
-    {
+    void Start(){
         Destroy(gameObject, 2f);
     }
 }

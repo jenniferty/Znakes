@@ -7,13 +7,11 @@ public class MapSelectingScript : MonoBehaviour
 {
     private AudioManager audioManager;
     public ObjectSpawnLocation location;
-    public PlayerHealth playerHealth;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
         location = FindObjectOfType<ObjectSpawnLocation>();
-        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     public void Story ()
@@ -26,7 +24,6 @@ public class MapSelectingScript : MonoBehaviour
     {
         audioManager.playGameStopMenuTheme();
         location.setMapIndex(1);
-        playerHealth.setSnakeHealth(playerHealth.getSnakeMaxHealth());
         SceneChanger.LoadScene("Map1");
     }
 
@@ -34,7 +31,6 @@ public class MapSelectingScript : MonoBehaviour
     {
         audioManager.playGameStopMenuTheme();
         location.setMapIndex(2);
-        playerHealth.setSnakeHealth(playerHealth.getSnakeMaxHealth());
         SceneChanger.LoadScene("Map2");
     }
 
@@ -42,7 +38,6 @@ public class MapSelectingScript : MonoBehaviour
     {
         audioManager.playGameStopMenuTheme();
         location.setMapIndex(3);
-        playerHealth.setSnakeHealth(playerHealth.getSnakeMaxHealth());
         SceneChanger.LoadScene("Map3");
     }
     public void Map4 ()
