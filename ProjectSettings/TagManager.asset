@@ -13,6 +13,8 @@ TagManager:
   - variable
   - wall
   - BodySides
+  - SpeedPowerup
+  - Cannon
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - UI
   - Enemy
   - MinimapRender
-  - 
+  - Player
   - 
   - 
   - 
