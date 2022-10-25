@@ -27,10 +27,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         // Keep same manager instance when scenes change
-<<<<<<< HEAD:Assets/Scripts/SnakeBehaviour/PlayerHealth.cs
         //For manipulating maxhealth when difficulty changes
-=======
->>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70:Assets/Scripts (Controller)/SnakeBehaviour/PlayerHealth.cs
         DontDestroyOnLoad(gameObject);
     }
 
