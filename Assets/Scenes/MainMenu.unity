@@ -9047,8 +9047,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -4.581299}
-  m_SizeDelta: {x: 442.2758, y: 192.1192}
+  m_AnchoredPosition: {x: 0, y: -17}
+  m_SizeDelta: {x: 466.6577, y: 253.0741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072984128
 MonoBehaviour:
@@ -9072,20 +9072,22 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Music:
 
-    "The Zone" Komiku (https://freemusicarchive.org/music/Komiku/)
+    "The Zone" Komiku https://freemusicarchive.org/music/Komiku/
+
 
     Creative
-    Commons CC0 Public Domain
+    Commons CC0 Public Domain https://www.chosic.com/free-music/all/
 
-    Music: https://www.chosic.com/free-music/all/
 
     "Itty
-    Bitty 8 Bit" Kevin MacLeod (incompetech.com)
+    Bitty 8 Bit" Kevin MacLeod incompetech.com
+
 
     Licensed under Creative Commons:
     By Attribution 4.0 License
 
     http://creativecommons.org/licenses/by/4.0/
+
 
     SFX
     from Zapsplat.com
@@ -9128,8 +9130,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16
-  m_fontSizeBase: 16
+  m_fontSize: 14
+  m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
