@@ -25,13 +25,11 @@ public class Explosion : MonoBehaviour
     {
         if (bomb == enabled)
         {
-            //detonates bomb when time reaches 0
             if (getBombTimer() > 0)
             {
                 setBombTimer(getBombTimer() - Time.deltaTime);
             }
-            else
-            {
+            else{
                 Invoke("Detonate", 0);
             }
         }
@@ -50,7 +48,7 @@ public class Explosion : MonoBehaviour
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
-            if (rb != null)
+            if(rb != null)
             {
                 rb.AddExplosionForce(getPower(), explosionPosition, getRadius(), getUpForce(), ForceMode.Impulse);
             }
