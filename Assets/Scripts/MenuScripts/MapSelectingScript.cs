@@ -50,7 +50,7 @@ public class MapSelectingScript : MonoBehaviour
         playerHealth.setSnakeHealth(playerHealth.getSnakeMaxHealth());
         SceneChanger.LoadScene("Map4");
     }
-    public void Ma5 ()
+    public void Map5 ()
     {
         audioManager.playGameStopMenuTheme();
         location.setMapIndex(5);
