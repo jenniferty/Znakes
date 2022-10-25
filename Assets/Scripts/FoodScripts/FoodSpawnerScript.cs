@@ -8,6 +8,8 @@ public class FoodSpawnerScript : MonoBehaviour
     private Transform[] foodLocations;
     public GameObject foodGameObj;
     private Transform previousLocation;
+    public string foodName;
+    public int pointsWorth;
 
     void Start()
     {

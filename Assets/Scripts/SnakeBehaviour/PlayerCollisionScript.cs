@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerCollisionScript : MonoBehaviour
 {
     public FoodSpawnerScript foodSpawner;
+    
     public PlayerController playerSnake;
     // PlayerController snakePlayer = new PlayerController();
 
@@ -23,6 +24,8 @@ public class PlayerCollisionScript : MonoBehaviour
         {
 
             foodSpawner.Spawn();
+          
+
             Destroy(collider.gameObject);
             playerSnake.GrowSnake();
             FindObjectOfType<AudioManager>().Play("Food");
