@@ -883,10 +883,6 @@ GameObject:
   m_Component:
   - component: {fileID: 112477920}
   - component: {fileID: 112477922}
-<<<<<<< HEAD
-  - component: {fileID: 112477923}
-=======
->>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70
   m_Layer: 6
   m_Name: Target Camera
   m_TagString: Untagged
@@ -7744,10 +7740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1916274750}
   - component: {fileID: 1916274749}
-<<<<<<< HEAD
-=======
   - component: {fileID: 1916274748}
->>>>>>> b74715a3d6773dde5058d77d79ed64e498d44f70
   - component: {fileID: 1916274751}
   m_Layer: 0
   m_Name: Third Person Camera
