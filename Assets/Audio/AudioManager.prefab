@@ -115,3 +115,24 @@ MonoBehaviour:
     loop: 0
     mixer: {fileID: -3035422944163485825, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
     source: {fileID: 0}
+  - name: SuspiciousCannon
+    clip: {fileID: 8300000, guid: 6803f96176805bf498f533055e1f9faf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixer: {fileID: -3035422944163485825, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    source: {fileID: 0}
+  - name: TreeThud
+    clip: {fileID: 8300000, guid: 5a1d7111965274b4285243c255f666d0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixer: {fileID: -3035422944163485825, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    source: {fileID: 0}
+  - name: Shoot
+    clip: {fileID: 8300000, guid: f8e995eb3055ebc45b5d6223a2baa061, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mixer: {fileID: -3035422944163485825, guid: 024f3fde1b12b274ca4ed3346f3bfb15, type: 2}
+    source: {fileID: 0}

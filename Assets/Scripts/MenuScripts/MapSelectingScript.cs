@@ -17,7 +17,8 @@ public class MapSelectingScript : MonoBehaviour
     }
     public void Story()
     {
-        audioManager.playGameStopMenuTheme();
+        audioManager.Stop("GameTheme");
+        audioManager.Play("MenuTheme");
         SceneChanger.LoadScene("Story");
     }
     public void Map1 ()
