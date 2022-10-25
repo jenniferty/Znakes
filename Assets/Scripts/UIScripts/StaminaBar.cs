@@ -43,15 +43,12 @@ public class StaminaBar : MonoBehaviour
     {
         if (playerController.getIsSprinting())
         {
-            Debug.Log("stamina -- " + stamina);
             stamina = Mathf.Clamp(stamina - (staminaDecreasePerFrame * Time.deltaTime), 0.0f, staminaMax);
         }
         else if (stamina < staminaMax)
         {
-            Debug.Log("stamina ++ "+stamina);
             stamina = Mathf.Clamp(stamina + (staminaIncreasePerFrame * Time.deltaTime), 0.0f, staminaMax);
         }
-        Debug.Log("Stamina Updated");
         SetStaminaSlider(stamina);
     }
 
