@@ -10,7 +10,7 @@ public class PauseGame : MonoBehaviour
 
     //public PlayerController playerController;
 
-    [SerializeField]GameObject PauseMenu;
+    public GameObject PauseMenu;
 
 
 
