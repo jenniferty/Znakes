@@ -4,29 +4,38 @@ using UnityEngine;
 
 public class BulletBehavior : MonoBehaviour
 {
-    private int damageMultiplier;
-    public PlayerController playerController;
+    private int damageMultiplier;//for damage powerup to be implemented
+    public PlayerController playerController;//to grab bodycount for damage calculation
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        Debug.Log(playerController.getBodyCount());
-        setDamageMultiplier(1);
-        Destroy(gameObject, 4f);
+        setDamageMultiplier(3);
+        Destroy(gameObject, 4f);//if bullet misses
     }
 
     public void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.CompareTag("Sides"))
+        //destroys itself when hits obstacles
+        if (collision.gameObject.CompareTag("Sides"))
         {
             Destroy(gameObject);
         }
-        if(collision.gameObject.CompareTag("Enemy"))
+        //decrease health of enemy on contact
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             EnemyHealthController enemyHealth = collision.gameObject.GetComponent<EnemyHealthController>();
             enemyHealth.TakeDamage(playerController.getBodyCount() * getDamageMultiplier());
             Destroy(gameObject);
         }
-        if(collision.gameObject.CompareTag("Bomb"))
+        //increase hit counter of cannon
+        if (collision.gameObject.CompareTag("Cannon"))
+        {
+            CannonHealth cannonHealth = collision.gameObject.GetComponent<CannonHealth>();
+            cannonHealth.TakeHit();
+            Destroy(gameObject);
+        }
+        //destroys bomb
+        if (collision.gameObject.CompareTag("Bomb"))
         {
             Explosion bomb = collision.gameObject.GetComponent<Explosion>();
             bomb.Detonate();
