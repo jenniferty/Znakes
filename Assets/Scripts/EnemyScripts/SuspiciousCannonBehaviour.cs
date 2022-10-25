@@ -44,6 +44,7 @@ public class SuspiciousCannonBehaviour : MonoBehaviour
     {
         if (other.gameObject.tag=="Player" && enemyHealthController.getEdible())
         {
+            FindObjectOfType<AudioManager>().Play("Food");
             Destroy(gameObject);
             playerController.GrowSnake();
         }

@@ -18,6 +18,7 @@ public class LaunchCannonBall : MonoBehaviour
     }
     public void Launch()
     {
+        FindObjectOfType<AudioManager>().Play("SuspiciousCannon");
         GameObject ball = Instantiate(cannonBall, transform.position, transform.rotation);
         ball.GetComponent<Rigidbody>().AddRelativeForce(0, launchVelocity, 0);
     }
