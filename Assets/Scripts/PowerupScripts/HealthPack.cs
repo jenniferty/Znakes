@@ -40,8 +40,10 @@ public class HealthPack : MonoBehaviour
         PlayerHealthController playerHealth = other.GetComponent<PlayerHealthController>();
         if (playerHealth != null)
         {
+
             if (playerHealth.getHealth() > (playerHealth.getMaxHealth() - healAmount))
             {
+                //sets to maxhealth rather than overflow
                 playerHealth.setHealth(playerHealth.getMaxHealth());
             }
             else

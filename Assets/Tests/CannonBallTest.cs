@@ -8,19 +8,18 @@ public class NewTestScript
 {
     // A Test behaves as an ordinary method
     [Test]
-    public void BombIsCreated()
+    public void CannonBallIsCreated()
     {
-        //GameObject[] bomb = SpawnPickUp();
+        GameObject[] cannonBall = Launch();
         //assert object exists
-        //Assert.IsNotNull(bomb);
+        Assert.IsNotNull(cannonBall);
     }
     //Test bomb disappears if player does not interact with it within time limit
     [Test]
-    public void BombDisappearsAtTimeLimit()
+    public void TreeIsCreated()
     {
-        //Time.timeScale = 20.0f;
-        //float time = 0;
-        
+        GameObject[] tree = GrowTree();
+        Assert.IsNotNull(tree);
 
     }
 

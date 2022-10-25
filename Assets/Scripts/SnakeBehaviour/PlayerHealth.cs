@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour 
+public class PlayerHealth : MonoBehaviour
 {
     // Settings
     private int snakeHealth;
@@ -27,6 +27,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
         // Keep same manager instance when scenes change
+        //For manipulating maxhealth when difficulty changes
         DontDestroyOnLoad(gameObject);
     }
 

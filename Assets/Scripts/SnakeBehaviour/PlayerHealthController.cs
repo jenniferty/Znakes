@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealthController : MonoBehaviour 
+public class PlayerHealthController : MonoBehaviour
 {
     // Settings
     private int health;
     private int maxHealth;
     public PlayerHealth playerHealth;
     public HealthBar healthBar;
-    public shaker cam;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,6 @@ public class PlayerHealthController : MonoBehaviour
         setMaxHealth();
         setInitialBodyHealth();
         healthBar.SetHealth(getHealth());
-        cam = GameObject.Find("THird Person Camera").GetComponent<shaker>();
     }
 
     // Update is called once per frame
@@ -36,8 +34,6 @@ public class PlayerHealthController : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("TakeDamage");
         setHealth(getHealth() - damage);
         healthBar.SetHealth(getHealth());
-        Debug.Log(getHealth());
-        cam.shouldShake = true;
     }
     private void CheckDeath()
     {
@@ -48,14 +44,14 @@ public class PlayerHealthController : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("MenuTheme");
         }
     }
-
-    public int getHealth()
-    {
-        return health;
-    }
+    //sets health to be the same as head
     public void setInitialBodyHealth()
     {
         this.health = playerHealth.getSnakeHealth();
+    }
+    public int getHealth()
+    {
+        return health;
     }
     public void setHealth(int health)
     {

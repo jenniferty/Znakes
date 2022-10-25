@@ -8,13 +8,11 @@ public class SuspiciousCannonBehaviour : MonoBehaviour
     public EnemyHealthController enemyHealthController;
     public PlayerController playerController;
     private bool destroyed = false;
-    //public Camera target;
     // Start is called before the first frame update
     void Start()
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        //target = GameObject.Find("Target Camera").GetComponent<Camera>();
         if (enemy == enabled)
         {
             Invoke("TimeOut", 15);
@@ -23,7 +21,6 @@ public class SuspiciousCannonBehaviour : MonoBehaviour
 
     void Update()
     {
-        //transform.LookAt(transform.position + target.transform.rotation * Vector3.forward, target.transform.rotation * Vector3.up);
         if(enemyHealthController.getEdible())
         {
             enemy.transform.Find("InedibleIcon").gameObject.SetActive(false);
