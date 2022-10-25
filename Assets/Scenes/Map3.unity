@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -883,6 +883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 112477920}
   - component: {fileID: 112477922}
+  - component: {fileID: 112477923}
   m_Layer: 6
   m_Name: Target Camera
   m_TagString: Untagged
@@ -948,6 +949,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &112477923
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112477919}
+  m_Enabled: 1
 --- !u!1 &137117369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,6 +1760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foodGameObj: {fileID: 1557275059431352359, guid: b0e4e55118dc84040a76b18d1f5ae0b1, type: 3}
+  foodName: 
+  pointsWorth: 0
 --- !u!4 &352061798
 Transform:
   m_ObjectHideFlags: 0
@@ -2859,9 +2870,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 0}
-  ignore: {fileID: 0}
   healthBar: {fileID: 1106691031}
   cam: {fileID: 1916274751}
+  ignoreDamage: 0
 --- !u!114 &602047114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7732,7 +7743,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1916274750}
   - component: {fileID: 1916274749}
-  - component: {fileID: 1916274748}
   - component: {fileID: 1916274751}
   m_Layer: 0
   m_Name: Third Person Camera
@@ -7741,14 +7751,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1916274748
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916274747}
-  m_Enabled: 1
 --- !u!20 &1916274749
 Camera:
   m_ObjectHideFlags: 0
