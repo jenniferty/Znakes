@@ -5,14 +5,14 @@ using TMPro;
 
 public class ScoreSystemDisplay : MonoBehaviour
 {
-    public static int score;
+    private int score;
 
     TextMeshProUGUI scoreText;
     // Start is called before the first frame update
     void Start()
     {
         scoreText = GetComponentInChildren<TextMeshProUGUI>();
-        score = 0;
+        setScore(0);
     }
 
    
@@ -20,6 +20,19 @@ public class ScoreSystemDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.SetText("Score: " + score); 
+        scoreText.SetText("Score: " + getScore()); 
+    }
+
+    public int getScore()
+    {
+        return this.score;
+    }
+    public void setScore(int score)
+    {
+        this.score = score;
+    }
+    public void addScore(int score)
+    {
+        setScore(getScore() + score);
     }
 }

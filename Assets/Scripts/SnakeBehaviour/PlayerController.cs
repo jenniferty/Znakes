@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     public int getBodyCount()
     {
-        return bodyCount;
+        return this.bodyCount;
     }
     public void setBodyCount(int bodyCount)
     {

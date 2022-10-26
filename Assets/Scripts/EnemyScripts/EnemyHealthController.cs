@@ -18,10 +18,10 @@ public class EnemyHealthController : MonoBehaviour
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         setLevel(playerController.getBodyCount());
-        CheckEdible();
         setMaxHealth();
         setHealth(getMaxHealth());
         setEdibleHealth(getMaxHealth());
+        CheckEdible();
     }
 
     // Update is called once per frame

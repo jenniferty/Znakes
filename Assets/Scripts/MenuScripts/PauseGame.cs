@@ -61,6 +61,7 @@ public class PauseGame : MonoBehaviour
     public void MenuButton()
     {
         SceneChanger.LoadScene("MainMenu");
+        isPaused = false;
         Time.timeScale = 1f;
         Debug.Log("Go to menus");
     }

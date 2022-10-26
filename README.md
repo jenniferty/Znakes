@@ -10,4 +10,11 @@ Choose a file location to save to.
 Open the Znakes.exe file to play the game.
 
 Authors:
-Dominic Philippu, Anthony Yuen, Andrew Zhao, Jennifer Ty and Lawrence Wang![image](https://user-images.githubusercontent.com/33407458/197782106-ef76a6d8-8b0f-4320-952c-6421c3dfe4f1.png)
+Dominic Philippu, Anthony Yuen, Andrew Zhao, Jennifer Ty and Lawrence Wang
+
+Controls:
+Turn Left - "A" or "Left Arrow Key"
+Turn Right: "D" or "Right Arrow Key"
+
+Sprint: "Shift"
+Fire Projectile: "Q" or "Left Mouse Button"
