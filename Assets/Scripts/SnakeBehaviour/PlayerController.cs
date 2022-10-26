@@ -145,10 +145,6 @@ public class PlayerController : MonoBehaviour
     {
         this.hasStamina = hasStamina;
     }
-    public bool getSpeedPowerupiIsActive()
-    {
-        return this.speedPowerupIsActive;
-    }
 
     /*
      * This is used by the SpeedPowerup script

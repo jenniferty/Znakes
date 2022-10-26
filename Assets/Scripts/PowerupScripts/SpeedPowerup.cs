@@ -6,8 +6,8 @@ public class SpeedPowerup : MonoBehaviour
 {
     public GameObject speedPowerup;
     public PlayerController playerController;
-    private float speedMultiplier = 1.24f;
-    private float steerSpeedMultiplier = 1.13f;
+    private float speedMultiplier = 1.5f; 
+    private float steerSpeedMultiplier = 1.13f; 
     private float abilityTimer = 10f;
     private Stack<float> speedStack = new Stack<float>();
     private Stack<float> steerSpeedStack = new Stack<float>();
@@ -51,6 +51,7 @@ public class SpeedPowerup : MonoBehaviour
         {
             FindObjectOfType<AudioManager>().Play("Powerup");
             setPlayerController(other);
+            DifferentMultiplyersIfSprinting();
             playerController.setSpeedPowerupIsActive(true);
             saveCurrentSpeed();
             MultiplySpeed();    //Somehow this is being called twice. Currently working around this bug by returning to prev x2
@@ -70,8 +71,24 @@ public class SpeedPowerup : MonoBehaviour
 
     public void backToPreviousSpeed()
     {
-        playerController.setSpeed(speedStack.Pop());
-        playerController.setSteerSpeed(steerSpeedStack.Pop());
+        if(speedStack.Count > 0)
+        {
+            playerController.setSpeed(speedStack.Pop());
+            playerController.setSteerSpeed(steerSpeedStack.Pop());
+        }
+    }
+    public void DifferentMultiplyersIfSprinting()
+    {
+        if (playerController.getIsSprinting())
+        {
+            setSpeedMultiplier(1.2f);
+            setSteerSpeedMultiplier(1.2f);
+        }
+        else
+        {
+            setSpeedMultiplier(1.5f);
+            setSteerSpeedMultiplier(1.13f);
+        }
     }
 
     public void saveCurrentSpeed()
@@ -88,10 +105,15 @@ public class SpeedPowerup : MonoBehaviour
     {
         return this.steerSpeedMultiplier;
     }
-    public void setSpeedMultiplier(int speedMultiplier)
+    public void setSpeedMultiplier(float speedMultiplier)
     {
         this.speedMultiplier = speedMultiplier;
     }
+    public void setSteerSpeedMultiplier(float steerSpeedMultiplier)
+    {
+        this.steerSpeedMultiplier = steerSpeedMultiplier;
+    }
+
     public void setPlayerController(Collider other)
     {
         this.playerController = other.GetComponent<PlayerController>();
