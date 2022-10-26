@@ -44,6 +44,7 @@ public class CannonBallBehaviour : MonoBehaviour
     //instantiates a tree prefab right side up
     public void GrowTree()
     {
+        FindObjectOfType<AudioManager>().Play("TreeThud");
         Instantiate(treePrefab, transform.position, Quaternion.Euler(0, 0, 0));
     }
 }
