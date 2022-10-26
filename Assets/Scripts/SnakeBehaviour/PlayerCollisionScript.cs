@@ -12,7 +12,7 @@ public class PlayerCollisionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -22,7 +22,6 @@ public class PlayerCollisionScript : MonoBehaviour
 
         if (collider.CompareTag("Food"))
         {
-
             foodSpawner.Spawn();
           
 

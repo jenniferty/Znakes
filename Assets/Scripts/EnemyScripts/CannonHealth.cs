@@ -10,12 +10,14 @@ public class CannonHealth : MonoBehaviour
     private int maxHits = 3;
     public GameObject enemy;
     public SuspiciousCannonBehaviour behaviour;
+    public ScoreSystemDisplay scoreDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
         //grab component of parent object
         behaviour = enemy.GetComponent<SuspiciousCannonBehaviour>();
+        scoreDisplay = GameObject.Find("Score").GetComponent<ScoreSystemDisplay>();
         setHits(0);
     }
 
@@ -27,6 +29,7 @@ public class CannonHealth : MonoBehaviour
         {
             behaviour.setDestroyed();
             Destroy(gameObject);
+            scoreDisplay.addScore(70);
         }
     }
     public void TakeHit()

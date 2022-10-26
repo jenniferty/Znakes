@@ -7,12 +7,14 @@ public class SuspiciousCannonBehaviour : MonoBehaviour
     public GameObject enemy;
     public EnemyHealthController enemyHealthController;
     public PlayerController playerController;
+    public ScoreSystemDisplay scoreDisplay;
     private bool destroyed = false;
     //public Camera target;
     // Start is called before the first frame update
     void Start()
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
+        scoreDisplay = GameObject.Find("Score").GetComponent<ScoreSystemDisplay>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         //target = GameObject.Find("Target Camera").GetComponent<Camera>();
         if (enemy == enabled)
@@ -47,6 +49,7 @@ public class SuspiciousCannonBehaviour : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("Food");
             Destroy(gameObject);
             playerController.GrowSnake();
+            scoreDisplay.addScore(200);
         }
     }
     public void setDestroyed()

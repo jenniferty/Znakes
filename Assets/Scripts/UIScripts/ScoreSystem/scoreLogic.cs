@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class scoreLogic : MonoBehaviour
 {
+    public ScoreSystemDisplay scoreDisplay;
+    void Start()
+    {
+        scoreDisplay = GameObject.Find("Score").GetComponent<ScoreSystemDisplay>();   
+    }
      
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
@@ -11,7 +16,7 @@ public class scoreLogic : MonoBehaviour
 
         //add if else statements as each different food type will have different points 
 
-        ScoreSystemDisplay.score += 50;
+        scoreDisplay.addScore(50);
         //scoreText.SetText("Score: " + score);
     }
 }
