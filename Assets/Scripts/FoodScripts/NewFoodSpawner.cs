@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemySpawner : MonoBehaviour
+public class NewFoodSpawner : MonoBehaviour
 {
-    public static EnemySpawner instance;
-    public ObjectSpawnLocation enemySpawnLocation;
+    public static NewFoodSpawner instance;
+    public ObjectSpawnLocation foodSpawnLocation;
 
-    public GameObject bomb_Pickup;
-    public GameObject health_Pickup;
-    public GameObject sus_Flame;
-    public GameObject sus_Cannon;
-    public GameObject speedPowerup_Pickup;
+    public GameObject food;
+    public GameObject squirrel;
+    public GameObject turtle;
+    public GameObject baby;
+    public GameObject alienFood;
+    
     public float[,] coordinates;
 
     //bounds for area for bomb to spawn
@@ -27,7 +28,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        enemySpawnLocation = FindObjectOfType<ObjectSpawnLocation>();
+        foodSpawnLocation = FindObjectOfType<ObjectSpawnLocation>();
         Invoke("StartSpawning", 1f);
     }
 
@@ -52,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
     public void RandomiseLocation()
     {
         //gets a 2d array
-        coordinates = enemySpawnLocation.getCoordinates();
+        coordinates = foodSpawnLocation.getCoordinates();
         //ignores first item of array(contains zero)
         int area = Random.Range(1, coordinates.GetLength(0));
         setMin_X(coordinates[area, 0]);
@@ -73,35 +74,30 @@ public class EnemySpawner : MonoBehaviour
         {
             if (Random.Range(0, 10) >= 2)
             {
-                int chance = Random.Range(1, 4);
+                int chance = Random.Range(1, 6);
                 //equal chance of spawning
                 switch (chance)
                 {
                     case 1:
-                        Instantiate(bomb_Pickup, pos, Quaternion.identity);
+                        Instantiate(food, pos, Quaternion.identity);
                         break;
                     case 2:
-                        Instantiate(sus_Flame, pos, Quaternion.identity);
+                        Instantiate(squirrel, pos, Quaternion.identity);
                         break;
                     case 3:
-                        Instantiate(sus_Cannon, pos, Quaternion.identity);
+                        Instantiate(turtle, pos, Quaternion.identity);
+                        break;
+                    case 4:
+                        Instantiate(baby, pos, Quaternion.identity);
+                        break;
+                    case 5:
+                        Instantiate(alienFood, pos, Quaternion.identity);
                         break;
                     default:
                         break;
                 }
             }
-            else
-            {
-                if (Random.Range(0, 10) >= 4)
-                {
-                    Instantiate(health_Pickup, pos, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(speedPowerup_Pickup, pos, Quaternion.identity);
-                    Debug.Log("speedPowerup spawned");
-                }
-            }
+          
 
         }
         Invoke("StartSpawning", 0f);

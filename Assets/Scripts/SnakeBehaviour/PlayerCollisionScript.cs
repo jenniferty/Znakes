@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCollisionScript : MonoBehaviour
 {
+
+    //not used anymore
     public FoodSpawnerScript foodSpawner;
     
     public PlayerController playerSnake;
@@ -26,23 +28,10 @@ public class PlayerCollisionScript : MonoBehaviour
           
 
             Destroy(collider.gameObject);
-            playerSnake.GrowSnake();
+            //playerSnake.GrowSnake();
             FindObjectOfType<AudioManager>().Play("Food");
         }
 
-        if (collider.CompareTag("Sides"))
-        {
-            //Destroy(playerSnake);
-            playerSnake.GetComponent<PlayerHealthController>().TakeDamage(100);
-            Debug.Log("Has hit wall");
-        }
-
-        if (collider.CompareTag("BodySides"))
-        {
-            //Destroy(playerSnake);
-            playerSnake.GetComponent<PlayerHealthController>().TakeDamage(100);
-            Debug.Log("has hit its own body");
-        }
 
 
 
