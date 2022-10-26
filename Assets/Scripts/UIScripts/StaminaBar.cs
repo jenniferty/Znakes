@@ -18,7 +18,6 @@ public class StaminaBar : MonoBehaviour
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        Debug.Log("Inside Stamina Bar");
         SetStaminaMax();
     }
 
