@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
         GrowSnake();
         GrowSnake();
         GrowSnake();
+        //Debug.Log(getBodyCount());
     }
 
     // Update is called once per frame
@@ -94,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
     public int getBodyCount()
     {
-        return bodyCount;
+        return this.bodyCount;
     }
     public void setBodyCount(int bodyCount)
     {
