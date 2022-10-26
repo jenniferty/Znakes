@@ -40,9 +40,6 @@ public class EnemyHealthController : MonoBehaviour
         if (getLevel() < playerController.getBodyCount() || getHealth() <= getEdibleHealth())
         {
             setEdible();
-            Debug.Log(getHealth() <= getEdibleHealth());
-            Debug.Log(getHealth());
-            Debug.Log(getEdibleHealth());
         }
     }
 

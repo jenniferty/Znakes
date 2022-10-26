@@ -7,11 +7,13 @@ public class SuspiciousBehaviour : MonoBehaviour
     public GameObject enemy;
     public EnemyHealthController enemyHealthController;
     public PlayerController playerController;
+    public ScoreSystemDisplay scoreDisplay;
     //public Camera target;
     // Start is called before the first frame update
     void Start()
     {
         enemyHealthController = GetComponent<EnemyHealthController>();
+        scoreDisplay = GameObject.Find("Score").GetComponent<ScoreSystemDisplay>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         if (enemy == enabled)
         {
@@ -43,6 +45,7 @@ public class SuspiciousBehaviour : MonoBehaviour
         {
             Destroy(gameObject);
             playerController.GrowSnake();
+            scoreDisplay.addScore(100);
         }
     }
 }
