@@ -2463,7 +2463,6 @@ MonoBehaviour:
   enemy: {fileID: 4004781127094337912}
   enemyHealthController: {fileID: 0}
   playerController: {fileID: 0}
-  target: {fileID: 0}
 --- !u!114 &7339606145977666258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3195,11 +3194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6313742938112514345, guid: 1dcee1c37d3aa1945a6cd4d933e1ed6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02893063
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 6313742938112514345, guid: 1dcee1c37d3aa1945a6cd4d933e1ed6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.69
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 6313742938112514345, guid: 1dcee1c37d3aa1945a6cd4d933e1ed6e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3273,11 +3272,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.02893063
+      value: -0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.45
+      value: 1.27
       objectReference: {fileID: 0}
     - target: {fileID: 8708086225677987796, guid: 4427eb3de15dc3b42bf24c535744d082, type: 3}
       propertyPath: m_LocalPosition.z
