@@ -4935,6 +4935,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
+--- !u!1 &1267958091 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6394306862437941230, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
+  m_PrefabInstance: {fileID: 1267958090}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1267958092 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6394306862437941012, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
+  m_PrefabInstance: {fileID: 1267958090}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267958091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b904893ed693144a9c0ef45a6592d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1267958093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267958091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db040f71aea9644e93fc3079fd1d74f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreDisplay: {fileID: 0}
+  playerSnake: {fileID: 1267958092}
 --- !u!1 &1313639718
 GameObject:
   m_ObjectHideFlags: 0
