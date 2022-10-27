@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        thirdPerson();
     }
 
     // Update is called once per frame
@@ -18,14 +18,25 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetKey("3"))
         {
-            firstPersonCamera.SetActive(false);
-            thirdPersonCamera.SetActive(true);
+            thirdPerson();
         }
         if (Input.GetKey("1"))
         {
-            firstPersonCamera.SetActive(true);
-            thirdPersonCamera.SetActive(false);
+            firstPerson();
         }
 
+    }
+
+
+    public void thirdPerson()
+    {
+        firstPersonCamera.SetActive(false);
+        thirdPersonCamera.SetActive(true);
+    }
+
+    public void firstPerson()
+    {
+        firstPersonCamera.SetActive(true);
+        thirdPersonCamera.SetActive(false);
     }
 }
