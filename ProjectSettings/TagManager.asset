@@ -15,6 +15,10 @@ TagManager:
   - BodySides
   - SpeedPowerup
   - Cannon
+  - alien
+  - rat
+  - turtle
+  - baby
   layers:
   - Default
   - TransparentFX

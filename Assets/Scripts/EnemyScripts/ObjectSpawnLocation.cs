@@ -37,15 +37,15 @@ public class ObjectSpawnLocation : MonoBehaviour
             //
             //minX, maxX, minY, maxY, yPos(height)
             case 1:
-                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -15f, 15f, -15f, 15f, 3.8f } };
+                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -24f, 24f, -24f, 24f, 0.6f } };
             case 2:
-                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -10f, 10f, -10f, 10f, 3.8f } };
+                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -16f, 16f, -16f, 16f, 1.2f } };
             case 3:
                 return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -25f, 25f, -25f, 25f, 3.8f } };
             case 4:
-                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -17f, 17f, -17f, 17f, 3.8f } };
+                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -25f, 25f, -25f, 25f, 0.6f } };
             case 5:
-                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -25f, 25f, -25f, 25f, 3.8f } };
+                return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -15f, 25f, -15f, 25f, 1.3f } };
             default:
                 return coordinates = new float[,] { { 0f, 0f, 0f, 0f, 0f }, { -15f, 25f, -15f, 25f, 3.8f } };
         }

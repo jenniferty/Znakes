@@ -113,7 +113,7 @@ public class EnemySpawner : MonoBehaviour
         foreach (Collider col in colliders)
         {
             //change/add new tags as needed
-            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup" || col.tag == "Cannon")
+            if (col.tag == "Bomb" || col.tag == "Player" || col.tag == "Sides" || col.tag == "Food" || col.tag == "Health" || col.tag == "Enemy" || col.tag == "SpeedPowerup" || col.tag == "Cannon" || col.tag == "alien" || col.tag == "baby" || col.tag == "rat" || col.tag == "turtle")
             {
                 return false;
             }
