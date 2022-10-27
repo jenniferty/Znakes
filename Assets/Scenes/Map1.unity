@@ -4217,6 +4217,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2170249300194485667, guid: 96f6f8d50dece38439359d4c177b18b3, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2170249300194485667, guid: 96f6f8d50dece38439359d4c177b18b3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7903825028873048289, guid: 96f6f8d50dece38439359d4c177b18b3, type: 3}
       propertyPath: m_Name
       value: Background1
@@ -4278,6 +4286,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2692081980931483315, guid: e09cf3c5588d4f348ae994b127ac7bc0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2692081980931483315, guid: e09cf3c5588d4f348ae994b127ac7bc0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4655575581623148264, guid: e09cf3c5588d4f348ae994b127ac7bc0, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -4347,6 +4363,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Sides
       objectReference: {fileID: 0}
+    - target: {fileID: 5155365701910025689, guid: f8277640f843ac142822c621039a35e9, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5155365701910025689, guid: f8277640f843ac142822c621039a35e9, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5556206040549504629, guid: f8277640f843ac142822c621039a35e9, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -4400,6 +4424,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 62634445945774646, guid: 63a0d4affe8794e40a79fd0fa7ce82b6, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 62634445945774646, guid: 63a0d4affe8794e40a79fd0fa7ce82b6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7284953571346012781, guid: 63a0d4affe8794e40a79fd0fa7ce82b6, type: 3}
       propertyPath: m_RootOrder
       value: 17
