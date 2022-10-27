@@ -6,7 +6,7 @@ public class crawlerScript : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] private float crawlSpeed = 50f;
+    [SerializeField] private float crawlSpeed = 60f;
     void Start()
     {
         

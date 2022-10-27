@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 158670429199941054}
   - component: {fileID: 2853754457878673328}
   - component: {fileID: 6739855640410079036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 10051_Squirrel_v2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

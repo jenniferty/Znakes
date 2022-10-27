@@ -425,15 +425,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Znakes\nStory\n\nControls:\n\n Turn Left - \"A\" or \"Left Arrow Key\"
-    Turn Right: \"D\" or \"Right Arrow Key\"\n\nSprint: \"Shift\"\nFire Projectile:
-    \"Q\" or \"Left Mouse Button\"\n\n\nYou have landed on a mysterious planet you
-    object is to eat  the different foods (baby, alien, squirrel golden egg and alien)
-    and grow you snake size as big as you can collecting points to take over the
-    planet. However the there enemies who are trying to exterminate you so you do
-    not reach your goal once you have reached the correct amount points you move
-    onto the next map where you will do the same as before. Once you have reached
-    the last map you will take over the planet and win the game"
+  m_text: "Znakes\nStory\n\nControls:\n\nTurn Left - \"A\" or \"Left Arrow Key\"
+    \nTurn Right: \"D\" or \"Right Arrow Key\"\n\nToggle MiniMap usng \"m\"\nSprint:
+    \"Shift\"\nFire Projectile: \"Q\" or \"Left Mouse Button\"\n\n\nYou have landed
+    on a mysterious planet you object is to eat  the different foods (baby, alien,
+    squirrel golden egg and alien) and grow you snake size as big as you can collecting
+    points to take over the planet. However the there enemies who are trying to exterminate
+    you so you do not reach your goal once you have reached the correct amount points
+    you move onto the next map where you will do the same as before. Once you have
+    reached the last map you will take over the planet and win the game"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c29bcd8efb06d0b4cbfc09fbf151c2cd, type: 2}
   m_sharedMaterial: {fileID: -3585080179282944560, guid: c29bcd8efb06d0b4cbfc09fbf151c2cd, type: 2}
