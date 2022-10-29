@@ -13,8 +13,10 @@ Authors:
 Dominic Philippu, Anthony Yuen, Andrew Zhao, Jennifer Ty and Lawrence Wang
 
 Controls:
-Turn Left - "A" or "Left Arrow Key"
+Turn Left: "A" or "Left Arrow Key"
 Turn Right: "D" or "Right Arrow Key"
 
 Sprint: "Shift"
 Fire Projectile: "Q" or "Left Mouse Button"
+
+Toggle Map: "M"
