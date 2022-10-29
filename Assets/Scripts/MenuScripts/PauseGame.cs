@@ -60,6 +60,8 @@ public class PauseGame : MonoBehaviour
 
     public void MenuButton()
     {
+        FindObjectOfType<AudioManager>().Stop("GameTheme"); 
+        FindObjectOfType<AudioManager>().Play("MenuTheme");
         SceneChanger.LoadScene("MainMenu");
         isPaused = false;
         Time.timeScale = 1f;
