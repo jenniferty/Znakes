@@ -559,6 +559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3985240224437145515, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
+      propertyPath: minimap
+      value: 
+      objectReference: {fileID: 2035879043}
     - target: {fileID: 5092952221670507261, guid: 5a14952a993da4d4a81f42c728aa888c, type: 3}
       propertyPath: m_Layer
       value: 7
